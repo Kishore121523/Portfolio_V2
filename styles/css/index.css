@@ -301,11 +301,6 @@ nav .close:hover path {
   font-weight: bold;
 }
 
-#home .nameDiv .nameDiv1 .content:hover {
-  -webkit-transform: scale(1.2);
-          transform: scale(1.2);
-}
-
 #home .nameDiv .roleDiv1 {
   display: -webkit-box;
   display: -ms-flexbox;
