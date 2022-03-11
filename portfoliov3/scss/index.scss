@@ -1,0 +1,2721 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap');
+// variables
+$fontBase: 'DM Sans',
+sans-serif;
+$backgroundColor: #121212;
+$level1Dark: #1e1e1e;
+$level2Dark: #222222;
+$level3Dark: #363636;
+$level4Dark: #242424;
+$level5Dark: #272727;
+$level6Dark: #2c2c2c;
+$level7Dark: #2d2d2d;
+$level8Dark: #343434;
+$level9Dark: #383838;
+$purple: #bb86fc;
+$peach: #f4ae95;
+$cyan:#03dac5;
+$error:#cf6679;
+$halfWhite: #d6d4d4;
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    font-family: $fontBase;
+    line-height: 1.4;
+    cursor: none;
+    text-decoration: none;
+    list-style-type: none;
+    input:focus,
+    textarea:focus,
+    select:focus {
+        outline: none;
+    }
+}
+
+.app__navigation {
+    display: none
+}
+
+.active {
+    color: $peach;
+}
+
+.activeDot {
+    background-color: $peach !important;
+}
+
+//Mobile screens
+body {
+    width: 100%;
+    height: auto;
+    overflow-x: hidden;
+    background: $backgroundColor;
+}
+
+a {
+    text-decoration: none;
+    font-size: 1.3rem;
+}
+
+.open-nav {
+    transform: translateX(0%);
+}
+
+.menu {
+    path {
+        fill: $peach;
+    }
+}
+
+header {
+    display: flex;
+    position: fixed;
+    width: 100vw;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 2px solid $peach;
+    background: rgba($color: $level2Dark, $alpha: 0.5);
+    backdrop-filter: blur(5px);
+    padding: 0.4rem 2rem;
+    z-index: 99999;
+    a svg {
+        height: 2.8rem;
+        padding-top: 1rem;
+    }
+    svg {
+        width: 1.8em;
+        margin-top: -.2em;
+    }
+}
+
+nav {
+    //sideBar with bg red
+    position: fixed;
+    right: 0;
+    top: 0;
+    border-left: 1px solid $peach;
+    background: $backgroundColor;
+    width: 50%;
+    height: 100vh;
+    text-transform: uppercase;
+    transform: translateX(100%);
+    transition: transform .5s ease-in-out;
+    z-index: 99999;
+    ul {
+        list-style-type: none;
+        padding: 0;
+        margin-top: 7rem;
+        li {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-direction: column;
+            div {
+                position: absolute;
+                width: 5px;
+                height: 5px;
+                background: transparent;
+                float: right;
+                margin-left: 80%;
+                margin-top: 1.3rem;
+                border-radius: 50%;
+                margin-bottom: 0.2px;
+                transition: all 300ms ease-in-out;
+            }
+            a {
+                font-size: 1rem;
+                color: $halfWhite;
+                padding: .75em 2em;
+                margin-bottom: 0.8rem;
+                width: 100%;
+                &:hover {
+                    background: $level5Dark;
+                    color: $peach;
+                }
+            }
+            &:hover {
+                div {
+                    background: $peach;
+                    color: $peach;
+                }
+            }
+        }
+    }
+    .socialMedia {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 20%;
+        li {
+            a {
+                font-size: 1rem;
+                color: $halfWhite;
+                padding: 0em 1.5em;
+                margin-bottom: 0.8rem;
+                width: 100%;
+                &:hover {
+                    background: none;
+                    color: $peach;
+                }
+            }
+        }
+    }
+    .close {
+        float: right;
+        margin: 2em 1em;
+        margin-top: 3em;
+        width: 2em;
+        transition: all 3000ms ease;
+        path {
+            fill: $peach;
+        }
+        &:hover {
+            path {
+                fill: $halfWhite;
+            }
+        }
+    }
+}
+
+.letterAnim {
+    position: absolute;
+    display: flex;
+    height: 100vh;
+    width: 100%;
+    justify-content: center;
+    padding-top: 7rem;
+    z-index: 10;
+    #demo-svg {
+        transform: scale(1.4);
+        path {
+            stroke: $halfWhite;
+        }
+    }
+}
+
+#home {
+    background: url("/assets/heroImg3-min.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    object-fit: cover;
+    min-height: 100vh;
+    width: 100%;
+    color: $halfWhite;
+    animation: clip 2s forwards;
+    .nameDiv {
+        color: $halfWhite;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        align-items: flex-start;
+        min-height: 100vh;
+        padding-bottom: 40%;
+        padding-left: 2.2rem;
+        gap: 1rem;
+        .nameDiv1 {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: row;
+            background: rgba($color: $level2Dark, $alpha: 0.6);
+            backdrop-filter: blur(5px);
+            padding: 1rem 1.2rem;
+            padding-left: 0.9rem;
+            border-radius: 10px;
+            gap: 0.8rem;
+            box-shadow: 0px 1px 20px 2px rgba(53, 52, 52, 0.2);
+            animation: slideIn 2.5s forwards;
+            .waveEmoji {
+                font-size: 2rem;
+                animation: wave 2s infinite;
+            }
+            .content {
+                display: flex;
+                flex-direction: column;
+                p {
+                    font-size: .75rem;
+                }
+                .name {
+                    font-size: 1.5rem;
+                    font-weight: bold;
+                }
+            }
+        }
+        .roleDiv1 {
+            // position: absolute;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background: rgba($color: $level2Dark, $alpha: 0.5);
+            backdrop-filter: blur(5px);
+            padding: 0.8rem 1.8rem;
+            border-radius: 10px;
+            text-transform: uppercase;
+            gap: 1px;
+            box-shadow: 0px 1px 20px 2px rgba(53, 52, 52, 0.2);
+            z-index: 1;
+            animation: slideIn 2s forwards;
+            .role {
+                font-size: 0.7rem;
+            }
+        }
+    }
+}
+
+#about {
+    min-height: auto;
+    width: 100%;
+    .wrapper {
+        position: relative;
+        width: 100%;
+        .contentAbout {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100%;
+            margin: auto 5rem;
+            padding-top: 6rem;
+            z-index: 1;
+            opacity: 0;
+            color: $halfWhite;
+            .about-head-hr {
+                height: 2px;
+                background: $peach;
+                border: none;
+                z-index: 1;
+                border-radius: 5px;
+                margin-bottom: 2rem;
+                margin-top: 0.7rem;
+            }
+            .about-head {
+                text-align: center;
+                width: 100%;
+                font-size: 1.1rem;
+                margin: 0;
+                line-height: 1.7;
+                margin-bottom: 1rem;
+            }
+            .about-name {
+                text-align: center;
+                font-size: 5rem;
+                font-weight: bold;
+                z-index: 2;
+                line-height: 1.1;
+            }
+            .about-content {
+                text-align: center;
+                z-index: 10;
+                span {
+                    color: $peach;
+                }
+                font-size: 1.1rem;
+            }
+        }
+        .about-contact {
+            display: flex;
+            width: 100%;
+            justify-content: flex-start;
+            align-items: center;
+            flex-direction: column;
+            gap: 2rem;
+            margin-top: 3rem;
+            button {
+                color: $peach;
+                background: transparent;
+                border: 2px solid $peach;
+                border-radius: 50px;
+                padding: 10px 2rem;
+                font-size: 1rem;
+                transition: all 300ms ease;
+                text-transform: uppercase;
+                &:hover {
+                    border: 2px solid $halfWhite;
+                    color: $halfWhite;
+                    background: rgba($color: $level4Dark, $alpha: 0.5);
+                }
+            }
+            ul {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                padding-top: 2px;
+                li {
+                    a {
+                        color: $halfWhite;
+                        padding: 0 2.8rem;
+                        transition: color 200ms ease;
+                        &:hover {
+                            color: $peach;
+                        }
+                    }
+                }
+            }
+            .line {
+                width: auto;
+                height: 40%;
+                margin-top: 5px;
+                border-right: 2px solid $peach;
+                border-radius: 5px;
+                opacity: 1;
+                transition: none;
+            }
+        }
+    }
+    svg {
+        display: none;
+        position: absolute;
+        right: 0;
+        height: 90vh;
+        margin-top: 4.5%;
+        z-index: 0;
+        path {
+            fill: rgba($color: $level3Dark, $alpha: 0.2);
+        }
+        rect {
+            fill: rgba($color: $level3Dark, $alpha: 0.2);
+        }
+    }
+    .section {
+        display: none;
+        grid-template-columns: repeat(10, auto);
+        z-index: -1;
+        div {
+            background-color: transparent;
+            height: 100vh;
+        }
+    }
+}
+
+#work {
+    min-height: 100vh;
+    width: 100%;
+    .wrapper {
+        width: 100%;
+        height: auto;
+        .work-content {
+            padding-top: 6rem;
+            height: auto;
+            margin: auto 4rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            .work-head {
+                color: $halfWhite;
+                text-align: center;
+                align-self: center;
+                font-size: 2.5rem;
+                font-weight: bold;
+                span {
+                    color: $peach;
+                }
+            }
+            .work-categories {
+                overflow: hidden;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                width: 100%;
+                flex-wrap: wrap;
+                gap: 2rem;
+                padding-top: 2rem;
+                li {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    background: rgba($color: $level3Dark, $alpha: 0.6);
+                    backdrop-filter: blur(5px);
+                    padding: 0.5rem 1rem;
+                    border-radius: 10px;
+                    a {
+                        text-align: center;
+                        font-size: 0.8rem;
+                        color: $halfWhite;
+                        transition: all 300ms ease;
+                    }
+                }
+            }
+            .work-cards {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                height: auto;
+                flex-wrap: wrap;
+                padding: 1.3rem 0rem;
+                padding-bottom: 0;
+                transition: all 1s ease-in-out;
+                .card-outer {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    flex-direction: column;
+                    width: 100%;
+                    height: auto;
+                    background: rgba($color: $level3Dark, $alpha: 0.6);
+                    backdrop-filter: blur(5px);
+                    border-radius: 8px;
+                    padding: 0.5rem;
+                    margin: 1.5rem;
+                    transition: all 300ms ease;
+                    &:hover {
+                        box-shadow: 0 0 25px rgba($color: #252525, $alpha: 0.4);
+                    }
+                    .divImg {
+                        position: relative;
+                        width: 100%;
+                        img {
+                            opacity: 1;
+                            width: 100%;
+                            height: auto;
+                            transition: .5s ease;
+                            backface-visibility: hidden;
+                            padding: 0.5rem;
+                            border-radius: 1.2rem;
+                            object-fit: cover;
+                        }
+                        .middle {
+                            transition: .5s ease;
+                            opacity: 0;
+                            position: absolute;
+                            top: 50%;
+                            left: 50%;
+                            transform: translate(-50%, -50%);
+                            display: flex;
+                            justify-content: center;
+                            align-items: center;
+                            gap: 2rem;
+                            font-size: 1.2rem;
+                            a {
+                                font-size: 1rem;
+                            }
+                            i {
+                                top: 0;
+                                left: 0;
+                                bottom: 0;
+                                right: 0;
+                                width: 100%;
+                                height: 100%;
+                                text-align: center;
+                                color: $halfWhite;
+                                z-index: 100;
+                                transition: all 300ms ease;
+                                background: rgba($color: $level3Dark, $alpha: 0.8);
+                                padding: 0.9rem;
+                                border-radius: 50%;
+                                &:hover {
+                                    color: $peach;
+                                    transform: scale(1.2);
+                                }
+                            }
+                        }
+                        &:hover img {
+                            opacity: 0.25;
+                        }
+                        &:hover .middle {
+                            opacity: 1;
+                        }
+                    }
+                    .category {
+                        position: relative;
+                        background: rgba($color: $level3Dark, $alpha: 0.6);
+                        backdrop-filter: blur(5px);
+                        margin-top: -2.22rem;
+                        border-radius: 6px 6px 0 0;
+                        padding: 0.3rem 1.7rem;
+                        padding-bottom: 0.1rem;
+                        font-size: 0.7rem;
+                        color: $halfWhite;
+                    }
+                    .work-content {
+                        display: flex;
+                        flex-direction: column;
+                        align-items: center;
+                        justify-content: center;
+                        text-align: left;
+                        color: $halfWhite;
+                        padding: 1.5rem 1rem;
+                        padding-bottom: 1rem;
+                        height: inherit;
+                        margin: 0;
+                        .work-content-head {
+                            font-size: 1.1rem;
+                            padding-top: 0;
+                            padding-bottom: 7px;
+                        }
+                        .work-content-desc {
+                            text-align: center;
+                            color: rgba($color: $halfWhite, $alpha: 0.8);
+                            font-size: 0.7rem;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+#skills {
+    min-height: 100vh;
+    width: 100%;
+    .wrapper {
+        width: 100%;
+        .skills-content {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 6rem 0;
+            padding-bottom: 2.5rem;
+            padding-left: 0rem;
+            height: auto;
+            margin: auto 4rem;
+            .skills-head-div {
+                .skills-head {
+                    color: $halfWhite;
+                    align-self: center;
+                    font-size: 2.5rem;
+                    text-align: center;
+                    font-weight: bold;
+                    span {
+                        color: $peach;
+                    }
+                }
+                .skills-head-hr {
+                    display: none;
+                }
+            }
+            .skills-main {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                flex-direction: column;
+                width: 100%;
+                flex-wrap: wrap;
+                gap: 3rem;
+                margin-top: 2.5rem;
+                .skills-logos {
+                    display: flex;
+                    justify-content: center;
+                    align-items: flex-start;
+                    flex-wrap: wrap;
+                    gap: 2rem;
+                    width: 100%;
+                    .skills-img {
+                        width: 3rem;
+                        background: rgba($color: $level3Dark, $alpha: 0.6);
+                        backdrop-filter: blur(5px);
+                        border-radius: 50%;
+                        padding: 8px;
+                        transition: box-shadow 300ms ease-in-out;
+                    }
+                }
+                .skills-desc {
+                    align-self: flex-start;
+                    flex: 1;
+                    width: 80%;
+                    display: flex;
+                    border-left: 0px solid $peach;
+                    justify-content: center;
+                    align-items: flex-start;
+                    padding-left: 2rem;
+                    margin-left: 3rem;
+                    padding-top: 0.5rem;
+                    flex-direction: column;
+                    gap: 2rem;
+                    .skills-year {
+                        color: $halfWhite;
+                        display: flex;
+                        align-items: flex-start;
+                        gap: 4rem;
+                        .skills-current-year {
+                            transition: color 300ms ease-in-out;
+                            &:hover {
+                                color: $peach;
+                            }
+                        }
+                        .skills-year-desc {
+                            display: flex;
+                            flex-direction: column;
+                            align-items: flex-start;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+#contact {
+    min-height: 100vh;
+    width: 100%;
+    .wrapper {
+        width: 100%;
+        .contact-content {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 6rem 0;
+            padding-bottom: 1.5rem;
+            height: auto;
+            margin: auto 3rem;
+            .contact-head-div {
+                display: flex;
+                width: 100%;
+                justify-content: center;
+                flex-direction: column;
+                gap: 2rem;
+                .contact-head {
+                    display: flex;
+                    flex-direction: column;
+                    color: $halfWhite;
+                    justify-content: center;
+                    width: 100%;
+                    p {
+                        font-size: 2.5rem;
+                        font-weight: bold;
+                        text-align: center;
+                    }
+                    .contact-head-hr {
+                        display: none;
+                    }
+                }
+                .contact-top {
+                    width: 100%;
+                    display: flex;
+                    flex-direction: row;
+                    justify-content: center;
+                    align-items: center;
+                    gap: 2rem;
+                    .contact-phone {
+                        display: flex;
+                        flex-direction: column;
+                        justify-content: center;
+                        align-items: center;
+                        gap: 0.3rem;
+                        i {
+                            color: $peach;
+                            background: rgba($color: $level3Dark, $alpha: 0.6);
+                            backdrop-filter: blur(5px);
+                            border-radius: 50%;
+                            padding: 1.2rem;
+                            font-size: 0.7rem;
+                        }
+                        .phone-head {
+                            font-size: 0.7rem;
+                            color: $peach;
+                        }
+                        .phone-content {
+                            font-size: 0.6rem;
+                        }
+                    }
+                    .contact-email {
+                        display: flex;
+                        flex-direction: column;
+                        justify-content: center;
+                        align-items: center;
+                        gap: 0.3rem;
+                        margin-top: 1px;
+                        i {
+                            color: $peach;
+                            background: rgba($color: $level3Dark, $alpha: 0.6);
+                            backdrop-filter: blur(5px);
+                            border-radius: 50%;
+                            padding: 1.2rem;
+                            font-size: 0.7rem;
+                        }
+                        .email-head {
+                            font-size: 0.7rem;
+                            color: $peach;
+                        }
+                        .email-content {
+                            font-size: 0.6rem;
+                            transition: color 300ms ease;
+                            &:hover {
+                                color: $peach;
+                            }
+                        }
+                    }
+                }
+            }
+            .contact-main {
+                display: flex;
+                color: $halfWhite;
+                width: 100%;
+                flex-direction: column-reverse;
+                justify-content: center;
+                align-self: center;
+                align-items: center;
+                gap: 2rem;
+                margin-top: 10%;
+                .contact-form {
+                    display: flex;
+                    color: $halfWhite;
+                    flex-direction: column;
+                    justify-content: flex-start;
+                    align-items: center;
+                    align-self: center;
+                    width: 100%;
+                    border-radius: 10px;
+                    padding: 2rem;
+                    background: rgba($color: $level3Dark, $alpha: 0.6);
+                    backdrop-filter: blur(5px);
+                    gap: 1rem;
+                    .field-div {
+                        display: flex;
+                        flex-direction: column;
+                        width: 100%;
+                        justify-content: center;
+                        align-items: flex-start;
+                        gap: 1rem;
+                        label {
+                            padding-right: 5rem;
+                            font-size: 0.8rem;
+                        }
+                        input {
+                            width: 100%;
+                            background: rgba($color: $level3Dark, $alpha: 0.6);
+                            backdrop-filter: blur(5px);
+                            border-radius: 4px;
+                            border: 0;
+                            border-bottom: 2px solid $peach;
+                            transition: all 300ms ease;
+                            color: $halfWhite;
+                            padding: 5px;
+                            &:focus {
+                                border-bottom: 2px solid $halfWhite;
+                            }
+                        }
+                    }
+                    .field-div-textArea {
+                        display: flex;
+                        flex-direction: column;
+                        width: 100%;
+                        justify-content: center;
+                        align-items: flex-start;
+                        gap: 1rem;
+                        label {
+                            padding-right: 3.8rem;
+                            font-size: 0.8rem;
+                        }
+                        textarea {
+                            width: 100%;
+                            background: rgba($color: $level3Dark, $alpha: 0.6);
+                            backdrop-filter: blur(5px);
+                            border-radius: 4px;
+                            border: 0;
+                            border-bottom: 2px solid $peach;
+                            transition: all 300ms ease;
+                            color: $halfWhite;
+                            padding: 3px;
+                            &:focus {
+                                border-bottom: 2px solid $halfWhite;
+                            }
+                        }
+                    }
+                    .btn-submit {
+                        padding: 5px 10px;
+                        background: $halfWhite;
+                        color: $level1Dark;
+                        border: 0;
+                        text-align: center;
+                        align-self: center;
+                        justify-self: center;
+                        width: 40%;
+                        font-size: 0.8rem;
+                        border-radius: 5px;
+                        transition: all 300ms ease;
+                        &:hover {
+                            color: $level1Dark;
+                            background: $peach
+                        }
+                    }
+                }
+                .contact-logo {
+                    svg {
+                        position: relative;
+                        right: 0;
+                        height: 40vh;
+                        align-self: center;
+                        z-index: 0;
+                        .kLogo {
+                            fill: transparent;
+                        }
+                        .rect {
+                            fill: transparent;
+                        }
+                    }
+                }
+            }
+            .contact-bottom {
+                display: flex;
+                width: 100%;
+                margin-top: 1.5rem;
+                align-items: center;
+                justify-content: space-between;
+                .contact-social-media ul {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    gap: 1.5rem;
+                    li {
+                        a {
+                            color: $halfWhite;
+                            font-size: 1rem;
+                            transition: all 300ms ease;
+                            &:hover {
+                                color: $peach;
+                            }
+                        }
+                    }
+                }
+                .copyright {
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    align-items: flex-start;
+                    gap: 1px;
+                    color: $halfWhite;
+                    p {
+                        font-size: 0.5rem;
+                    }
+                }
+            }
+        }
+    }
+}
+
+footer {
+    background: rgba($color: $level3Dark, $alpha: 0.6);
+    backdrop-filter: blur(5px);
+    padding: 0.7rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    p {
+        color: $peach;
+        border-left: 1px solid $halfWhite;
+        border-right: 1px solid $halfWhite;
+        padding: 0px 1rem;
+        font-size: 0.7rem;
+    }
+}
+
+
+/* Modal */
+
+.modal {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    justify-content: center;
+    text-align: center;
+    color: $peach;
+    visibility: visible;
+    opacity: 1;
+    transition: all 5000ms ease;
+    padding: 2rem;
+    input,
+    select,
+    textarea {
+        caret-color: $halfWhite;
+        color: $peach;
+        background: rgba($color: $backgroundColor, $alpha: 0.9);
+        backdrop-filter: blur(2px);
+        border: 0px;
+        padding: 5px;
+    }
+}
+
+.close-about {
+    align-self: flex-end;
+    margin-bottom: 0.7rem;
+    transition: all 300ms ease;
+    &:hover {
+        color: $halfWhite;
+    }
+}
+
+#overlay {
+    opacity: 0;
+    transform: translateX(200%);
+    position: absolute;
+    top: 110vh;
+    margin: 5% 10%;
+    width: 80%;
+    height: 78%;
+    border-radius: 10px;
+    background: rgba($color: $level3Dark, $alpha: 0.6);
+    backdrop-filter: blur(8px);
+    transition: all 300ms ease;
+    z-index: 10;
+}
+
+#tagline {
+    border-radius: 5px;
+    border-color: white;
+    outline: none;
+    padding: 5px 5px;
+    font-size: 0.9rem;
+    width: 90%;
+    justify-self: center;
+    align-self: center;
+    color: $halfWhite;
+}
+
+#note {
+    border-radius: 5px;
+    outline: none;
+    padding: 5px 5px;
+    font-size: 0.9rem;
+    color: $halfWhite;
+    width: 90%;
+    justify-self: center;
+    align-self: center;
+}
+
+.modalContainer {
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    height: 100%;
+    z-index: 4;
+    label {
+        color: $peach
+    }
+}
+
+.modalBtn {
+    display: block;
+    width: 30%;
+    text-align: center;
+    margin: 0 auto;
+    font-size: 0.8rem;
+    padding: 7px;
+    border-radius: 5px;
+    border: none;
+    background-color: $halfWhite;
+    color: $level1Dark;
+    margin-top: 5px;
+    transition: all 300ms ease;
+}
+
+.modalBtn:hover {
+    color: $level1Dark;
+    background: $peach;
+}
+
+.modalLabelText {
+    font-size: 1rem;
+    color: $peach;
+}
+
+// from 680px do the following ---- tablet screens
+@media screen and (min-width: 680px) {
+    #overlay {
+        opacity: 0;
+        transform: translateX(200%);
+        position: absolute;
+        top: 110vh;
+        margin: 5% 19%;
+        width: 60%;
+        height: 78%;
+        border-radius: 10px;
+        background: rgba($color: $level3Dark, $alpha: 0.6);
+        backdrop-filter: blur(8px);
+        transition: all 300ms ease;
+        z-index: 10;
+    }
+    .menu {
+        display: none;
+    }
+    body {
+        margin: 0em;
+        background: $backgroundColor;
+    }
+    header {
+        display: flex;
+        position: fixed;
+        width: 100%;
+        justify-content: space-between;
+        align-self: center;
+        text-align: center;
+        padding: 0.2rem 4rem;
+        border-bottom: 2px solid $peach;
+        background: rgba($color: $level2Dark, $alpha: 0.6);
+        backdrop-filter: blur(5px);
+        a svg {
+            height: 2.3rem;
+            padding-top: 0.8rem;
+        }
+    }
+    nav {
+        transform: translateX(0%);
+        position: unset;
+        display: block;
+        width: auto;
+        height: auto;
+        border-left: none;
+        background: transparent;
+        svg.close {
+            display: none;
+        }
+        ul {
+            display: flex;
+            margin: 0;
+            li {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                flex-direction: column;
+                div {
+                    position: relative;
+                    float: none;
+                    width: 5px;
+                    height: 5px;
+                    margin-left: 0;
+                    margin-top: 0.2rem;
+                    border-radius: 50%;
+                    margin-bottom: 0.2px;
+                    background: transparent;
+                    border-radius: 50%;
+                    margin-bottom: 0.3px;
+                    transition: all 300ms ease-in-out;
+                }
+                a {
+                    margin-bottom: 0rem;
+                    background: transparent;
+                    color: $halfWhite;
+                    padding: 0.3rem 1.1rem;
+                    font-size: .7rem;
+                    transition: all 300ms ease-in-out;
+                    &:hover {
+                        color: $peach;
+                        background: none;
+                    }
+                }
+                &:hover {
+                    div {
+                        background: $peach;
+                    }
+                }
+            }
+        }
+        .socialMedia {
+            display: none;
+        }
+    }
+    .letterAnim {
+        position: absolute;
+        display: flex;
+        height: 100vh;
+        width: 100%;
+        justify-content: center;
+        padding-top: 7rem;
+        z-index: 10;
+        #demo-svg {
+            transform: scale(1.6);
+            path {
+                stroke: $halfWhite;
+            }
+        }
+    }
+    #home {
+        background: url("/assets/heroImg3-min.png");
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        object-fit: cover;
+        min-height: 100vh;
+        width: 100%;
+        .nameDiv {
+            // position: relative;
+            color: $halfWhite;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            align-items: flex-start;
+            min-height: 100vh;
+            padding-left: 6rem;
+            padding-bottom: 0.4rem;
+            .nameDiv1 {
+                display: flex;
+                flex-direction: row;
+                justify-content: center;
+                align-items: center;
+                background: rgba($color: $level2Dark, $alpha: 0.6);
+                backdrop-filter: blur(5px);
+                padding: 1rem 1.2rem;
+                padding-left: 0.9rem;
+                border-radius: 10px;
+                gap: 0.8rem;
+                margin-bottom: 8rem;
+                box-shadow: 0px 1px 20px 2px rgba(53, 52, 52, 0.2);
+                .waveEmoji {
+                    font-size: 2.3rem;
+                }
+                .content {
+                    display: flex;
+                    flex-direction: column;
+                    p {
+                        font-size: .75rem;
+                    }
+                    .name {
+                        font-size: 1.8rem;
+                        font-weight: bold;
+                        color: $peach;
+                    }
+                }
+            }
+            .roleDiv1 {
+                position: absolute;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                background: rgba($color: $level2Dark, $alpha: 0.5);
+                backdrop-filter: blur(5px);
+                padding: 0.8rem 1.8rem;
+                margin-left: 8rem;
+                margin-bottom: 3rem;
+                border-radius: 10px;
+                text-transform: uppercase;
+                gap: 1px;
+                box-shadow: 0px 1px 20px 2px rgba(53, 52, 52, 0.2);
+                .role {
+                    font-size: 0.7rem;
+                }
+            }
+        }
+    }
+    #about {
+        .wrapper {
+            position: relative;
+            .contentAbout {
+                margin: auto 7rem;
+                padding-top: 5rem;
+                z-index: 1;
+                opacity: 0;
+                color: $halfWhite;
+                .about-head {
+                    font-size: 1.3rem;
+                    margin-bottom: 1rem;
+                }
+                .about-name {
+                    font-size: 5.5rem;
+                }
+                .about-content {
+                    font-size: 1.3rem;
+                }
+            }
+            .about-contact {
+                gap: 2rem;
+                margin-top: 2.2rem;
+                button {
+                    padding: 10px 2rem;
+                    font-size: 1rem;
+                }
+                ul {
+                    padding-top: 5px;
+                    li {
+                        a {
+                            color: $halfWhite;
+                            padding: 0 2.8rem;
+                            transition: color 200ms ease;
+                            &:hover {
+                                color: $peach;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    #work {
+        min-height: 100vh;
+        width: 100%;
+        .wrapper {
+            // position: relative;
+            width: 100%;
+            height: auto;
+            .work-content {
+                padding-top: 6rem;
+                height: auto;
+                margin: auto 5rem;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                .work-cards {
+                    .card-outer {
+                        width: 40%;
+                    }
+                }
+            }
+        }
+    }
+    #skills {
+        .wrapper {
+            .skills-content {
+                margin: auto 6rem;
+                .skills-head-div {
+                    .skills-head {
+                        color: $halfWhite;
+                        align-self: center;
+                        font-size: 2.5rem;
+                        text-align: center;
+                        font-weight: bold;
+                        span {
+                            color: $peach;
+                        }
+                    }
+                    .skills-head-hr {
+                        display: none;
+                    }
+                }
+                .skills-main {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    flex-direction: column;
+                    width: 100%;
+                    flex-wrap: wrap;
+                    gap: 4rem;
+                    margin-top: 3rem;
+                    .skills-logos {
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        flex-wrap: wrap;
+                        gap: 2rem;
+                        width: 100%;
+                        .skills-img {
+                            width: 4rem;
+                            background: rgba($color: $level3Dark, $alpha: 0.6);
+                            backdrop-filter: blur(5px);
+                            border-radius: 50%;
+                            padding: 10px;
+                            transition: box-shadow 300ms ease-in-out;
+                        }
+                    }
+                    .skills-desc {
+                        align-self: center;
+                        flex: 1;
+                        width: 80%;
+                        display: flex;
+                        border-left: 0px solid $peach;
+                        justify-content: center;
+                        align-items: center;
+                        padding-left: 2rem;
+                        margin-left: 15%;
+                        padding-top: 0.5rem;
+                        flex-direction: column;
+                        gap: 2rem;
+                        .skills-year {
+                            color: $halfWhite;
+                            display: flex;
+                            align-items: flex-start;
+                            gap: 4rem;
+                            .skills-current-year {
+                                transition: color 300ms ease-in-out;
+                                &:hover {
+                                    color: $peach;
+                                }
+                            }
+                            .skills-year-desc {
+                                display: flex;
+                                flex-direction: column;
+                                align-items: flex-start;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    #contact {
+        .wrapper {
+            .contact-content {
+                margin: auto 6rem;
+                .contact-head-div {
+                    display: flex;
+                    width: 100%;
+                    justify-content: center;
+                    flex-direction: column;
+                    gap: 2rem;
+                    .contact-head {
+                        display: flex;
+                        flex-direction: column;
+                        color: $halfWhite;
+                        justify-content: center;
+                        width: 100%;
+                        p {
+                            font-size: 2.5rem;
+                            font-weight: bold;
+                            text-align: center;
+                        }
+                        .contact-head-hr {
+                            display: none;
+                        }
+                    }
+                    .contact-top {
+                        width: 100%;
+                        display: flex;
+                        flex-direction: row;
+                        justify-content: center;
+                        align-items: center;
+                        gap: 3rem;
+                        .contact-phone {
+                            display: flex;
+                            flex-direction: column;
+                            justify-content: center;
+                            align-items: center;
+                            gap: 0.3rem;
+                            i {
+                                color: $peach;
+                                background: rgba($color: $level3Dark, $alpha: 0.6);
+                                backdrop-filter: blur(5px);
+                                border-radius: 50%;
+                                padding: 1.2rem;
+                                font-size: 1rem;
+                            }
+                            .phone-head {
+                                font-size: 0.7rem;
+                                color: $peach;
+                            }
+                            .phone-content {
+                                font-size: 0.7rem;
+                            }
+                        }
+                        .contact-email {
+                            display: flex;
+                            flex-direction: column;
+                            justify-content: center;
+                            align-items: center;
+                            gap: 0.3rem;
+                            margin-top: 1px;
+                            i {
+                                color: $peach;
+                                background: rgba($color: $level3Dark, $alpha: 0.6);
+                                backdrop-filter: blur(5px);
+                                border-radius: 50%;
+                                padding: 1.2rem;
+                                font-size: 1rem;
+                            }
+                            .email-head {
+                                font-size: 0.7rem;
+                                color: $peach;
+                            }
+                            .email-content {
+                                font-size: 0.7rem;
+                                transition: color 300ms ease;
+                                &:hover {
+                                    color: $peach;
+                                }
+                            }
+                        }
+                    }
+                }
+                .contact-main {
+                    display: flex;
+                    color: $halfWhite;
+                    width: 100%;
+                    flex-direction: column-reverse;
+                    justify-content: center;
+                    align-self: center;
+                    align-items: center;
+                    gap: 2rem;
+                    margin-top: 7%;
+                    .contact-form {
+                        display: flex;
+                        color: $halfWhite;
+                        flex-direction: column;
+                        justify-content: flex-start;
+                        align-items: flex-start;
+                        align-self: center;
+                        width: 85%;
+                        border-radius: 10px;
+                        padding: 2rem;
+                        background: rgba($color: $level3Dark, $alpha: 0.6);
+                        backdrop-filter: blur(5px);
+                        gap: 2rem;
+                        .field-div {
+                            display: flex;
+                            flex-direction: column;
+                            width: 100%;
+                            justify-content: space-between;
+                            align-items: flex-start;
+                            gap: 1rem;
+                            label {
+                                padding-right: 5rem;
+                                font-size: 0.8rem;
+                            }
+                            input {
+                                width: 100%;
+                                background: rgba($color: $level3Dark, $alpha: 0.6);
+                                backdrop-filter: blur(5px);
+                                border-radius: 4px;
+                                border: 0;
+                                border-bottom: 2px solid $peach;
+                                transition: all 300ms ease;
+                                color: $halfWhite;
+                                padding: 5px;
+                                &:focus {
+                                    border-bottom: 2px solid $halfWhite;
+                                }
+                            }
+                        }
+                        .field-div-textArea {
+                            display: flex;
+                            flex-direction: column;
+                            width: 100%;
+                            justify-content: space-between;
+                            align-items: flex-start;
+                            gap: 1rem;
+                            label {
+                                padding-right: 3.8rem;
+                                font-size: 0.8rem;
+                            }
+                            textarea {
+                                width: 100%;
+                                background: rgba($color: $level3Dark, $alpha: 0.6);
+                                backdrop-filter: blur(5px);
+                                border-radius: 4px;
+                                border: 0;
+                                border-bottom: 2px solid $peach;
+                                transition: all 300ms ease;
+                                color: $halfWhite;
+                                padding: 3px;
+                                &:focus {
+                                    border-bottom: 2px solid $halfWhite;
+                                }
+                            }
+                        }
+                        .btn-submit {
+                            align-self: center;
+                            padding: 5px 15px;
+                            background: $halfWhite;
+                            color: $level1Dark;
+                            border: 0;
+                            width: 40%;
+                            border-radius: 5px;
+                            transition: all 300ms ease;
+                            &:hover {
+                                color: $level1Dark;
+                                background: $peach
+                            }
+                        }
+                    }
+                    .contact-logo {
+                        svg {
+                            position: relative;
+                            right: 0;
+                            height: 40vh;
+                            align-self: center;
+                            z-index: 0;
+                            .kLogo {
+                                fill: transparent;
+                            }
+                            .rect {
+                                fill: transparent;
+                            }
+                        }
+                    }
+                }
+                .contact-bottom {
+                    display: flex;
+                    width: 100%;
+                    margin-top: 1.5rem;
+                    align-items: center;
+                    justify-content: space-between;
+                    .contact-social-media ul {
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        gap: 2rem;
+                        li {
+                            a {
+                                color: $halfWhite;
+                                font-size: 1.2rem;
+                                transition: all 300ms ease;
+                                &:hover {
+                                    color: $peach;
+                                }
+                            }
+                        }
+                    }
+                    .copyright {
+                        display: flex;
+                        flex-direction: column;
+                        justify-content: center;
+                        align-items: flex-start;
+                        gap: 1px;
+                        color: $halfWhite;
+                        p {
+                            font-size: 0.7rem;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+// from 920px do the following ---- desktop screen
+@media screen and (min-width: 920px) {
+    body {
+        margin: 0em;
+        background: $backgroundColor;
+    }
+    .menu {
+        display: none;
+    }
+    header {
+        padding: 0.2rem 6rem;
+        z-index: 100;
+        font-weight: bold;
+        a svg {
+            height: 2.6rem;
+            padding-top: 0.8rem;
+        }
+    }
+    nav {
+        ul {
+            li {
+                a {
+                    padding: 0.1rem 1.8rem;
+                    margin-bottom: 0.2rem;
+                    font-size: .7rem;
+                }
+            }
+        }
+        .socialMedia {
+            display: none;
+        }
+    }
+    .app__navigation {
+        position: fixed;
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+        flex-direction: column;
+        top: 27%;
+        right: 0;
+        margin-right: 30px;
+        z-index: 9999;
+        .navigation-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background-color: #cbcbcb;
+            margin: 0.6rem;
+            transition: background-color 0.2s ease-in-out;
+            &:hover {
+                background-color: $peach;
+            }
+        }
+    }
+    .letterAnim {
+        position: absolute;
+        display: flex;
+        height: auto;
+        width: 100%;
+        justify-content: center;
+        padding-top: 9.3%;
+        z-index: 10;
+        #demo-svg {
+            transform: scale(1.7);
+            .peach {
+                stroke: $peach;
+            }
+            path {
+                stroke: $halfWhite;
+            }
+        }
+    }
+    // Home page
+    #home {
+        .nameDiv {
+            padding-left: 8rem;
+            padding-bottom: 0.3rem;
+            .nameDiv1 {
+                padding: 1rem 1.2rem;
+                padding-left: 0.9rem;
+                border-radius: 10px;
+                gap: 0.8rem;
+                margin-bottom: 8rem;
+                .waveEmoji {
+                    font-size: 2.5rem;
+                }
+                .content {
+                    p {
+                        font-size: .8rem;
+                    }
+                    .name {
+                        font-size: 2rem;
+                    }
+                }
+                &:hover {
+                    transform: translateX(20px);
+                }
+            }
+            .roleDiv1 {
+                padding: 0.8rem 2rem;
+                margin-left: 9rem;
+                margin-bottom: 2.7rem;
+                border-radius: 10px;
+                .role {
+                    font-size: 0.8rem;
+                }
+            }
+        }
+    }
+    #about {
+        .wrapper {
+            position: absolute;
+            .contentAbout {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: flex-start;
+                height: 100vh;
+                padding-top: 3.3rem;
+                margin-top: 0rem;
+                margin: auto 8rem;
+                padding-left: 2rem;
+                z-index: 1;
+                opacity: 0;
+                color: $halfWhite;
+                .about-head-hr {
+                    width: 60%;
+                    height: 2px;
+                    background: $peach;
+                    border: none;
+                    z-index: 1;
+                    border-radius: 5px;
+                    margin-bottom: 2rem;
+                    margin-top: 0.7rem;
+                }
+                .about-head {
+                    text-align: left;
+                    font-size: 1.5rem;
+                    margin: 0;
+                    line-height: 1.7;
+                }
+                .about-name {
+                    font-size: 6rem;
+                    font-weight: bold;
+                    z-index: 2;
+                    line-height: 1.1;
+                }
+                .about-content {
+                    text-align: left;
+                    z-index: 10;
+                    span {
+                        color: $peach;
+                    }
+                    font-size: 1.2rem;
+                }
+            }
+            .about-contact {
+                display: flex;
+                width: 100%;
+                justify-content: flex-start;
+                align-items: center;
+                flex-direction: row;
+                gap: 2rem;
+                margin-top: 3rem;
+                button {
+                    color: $peach;
+                    background: transparent;
+                    border: 2px solid $peach;
+                    border-radius: 50px;
+                    padding: 10px 2rem;
+                    font-size: 1rem;
+                    transition: all 300ms ease;
+                    text-transform: uppercase;
+                    &:hover {
+                        border: 2px solid $halfWhite;
+                        color: $halfWhite;
+                        background: rgba($color: $level4Dark, $alpha: 0.5);
+                    }
+                }
+                ul {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    padding-top: 5px;
+                    li {
+                        a {
+                            color: $halfWhite;
+                            padding: 0 2.8rem;
+                            transition: color 200ms ease;
+                            &:hover {
+                                color: $peach;
+                            }
+                        }
+                    }
+                }
+                .line {
+                    width: auto;
+                    height: 40%;
+                    margin-top: 5px;
+                    border-right: 2px solid rgba($color: $halfWhite, $alpha: 0.5);
+                    border-radius: 5px;
+                    opacity: 1;
+                    transition: none;
+                }
+            }
+        }
+        svg {
+            display: block;
+            position: absolute;
+            right: 0;
+            height: 90vh;
+            margin-top: 4.5%;
+            z-index: 0;
+            path {
+                fill: rgba($color: $level3Dark, $alpha: 0.2);
+            }
+            rect {
+                fill: rgba($color: $level3Dark, $alpha: 0.2);
+            }
+        }
+        .section {
+            display: grid;
+            grid-template-columns: repeat(10, auto);
+            z-index: -1;
+            div {
+                background-color: transparent;
+                height: 100vh;
+            }
+        }
+    }
+    #work {
+        min-height: 100vh;
+        width: 100%;
+        .wrapper {
+            // position: relative;
+            width: 100%;
+            height: auto;
+            .work-content {
+                padding-top: 6rem;
+                padding-left: 2rem;
+                height: auto;
+                margin: auto 8rem;
+                display: flex;
+                flex-direction: column;
+                justify-content: flex-start;
+                align-items: flex-start;
+                .work-head {
+                    color: $halfWhite;
+                    align-self: center;
+                    font-size: 3rem;
+                    font-weight: bold;
+                    span {
+                        color: $peach;
+                    }
+                }
+                .work-categories {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    width: 100%;
+                    gap: 2rem;
+                    padding-top: 2rem;
+                    li {
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        background: rgba($color: $level3Dark, $alpha: 0.6);
+                        backdrop-filter: blur(5px);
+                        padding: 0.5rem 1rem;
+                        border-radius: 10px;
+                        a {
+                            font-size: 0.8rem;
+                            color: $halfWhite;
+                            transition: all 300ms ease;
+                            &:hover {
+                                color: $peach;
+                            }
+                        }
+                    }
+                }
+                .work-cards {
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    height: auto;
+                    flex-wrap: wrap;
+                    padding: 1.3rem 0rem;
+                    padding-bottom: 0;
+                    transition: all 1s ease-in-out;
+                    .card-outer {
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        flex-direction: column;
+                        width: 25%;
+                        height: auto;
+                        background: rgba($color: $level3Dark, $alpha: 0.6);
+                        backdrop-filter: blur(5px);
+                        border-radius: 8px;
+                        padding: 0.5rem;
+                        margin: 2rem;
+                        transition: all 300ms ease;
+                        &:hover {
+                            box-shadow: 0 0 25px rgba($color: #252525, $alpha: 0.4);
+                        }
+                        .divImg {
+                            position: relative;
+                            width: 100%;
+                            img {
+                                opacity: 1;
+                                width: 100%;
+                                height: auto;
+                                transition: .5s ease;
+                                backface-visibility: hidden;
+                                padding: 0.5rem;
+                                border-radius: 0.9rem;
+                                object-fit: cover;
+                            }
+                            .middle {
+                                transition: .5s ease;
+                                opacity: 0;
+                                position: absolute;
+                                top: 50%;
+                                left: 50%;
+                                transform: translate(-50%, -50%);
+                                display: flex;
+                                justify-content: center;
+                                align-items: center;
+                                gap: 2rem;
+                                font-size: 1rem;
+                                a {
+                                    font-size: 0.9rem;
+                                }
+                                i {
+                                    top: 0;
+                                    left: 0;
+                                    bottom: 0;
+                                    right: 0;
+                                    width: 100%;
+                                    height: 100%;
+                                    text-align: center;
+                                    color: $halfWhite;
+                                    z-index: 100;
+                                    transition: all 300ms ease;
+                                    background: rgba($color: $level3Dark, $alpha: 0.8);
+                                    padding: 0.8rem;
+                                    border-radius: 50%;
+                                    &:hover {
+                                        color: $peach;
+                                        transform: scale(1.2);
+                                    }
+                                }
+                            }
+                            &:hover img {
+                                opacity: 0.4;
+                            }
+                            &:hover .middle {
+                                opacity: 1;
+                            }
+                        }
+                        .category {
+                            position: relative;
+                            background: rgba($color: $level3Dark, $alpha: 0.6);
+                            backdrop-filter: blur(5px);
+                            margin-top: -2.26rem;
+                            border-radius: 6px 6px 0 0;
+                            padding: 0.3rem 1.7rem;
+                            padding-bottom: 0.1rem;
+                            font-size: 0.7rem;
+                            color: $halfWhite;
+                        }
+                        .work-content {
+                            display: flex;
+                            flex-direction: column;
+                            align-items: center;
+                            justify-content: center;
+                            text-align: left;
+                            color: $halfWhite;
+                            padding: 1.5rem 1rem;
+                            padding-bottom: 1rem;
+                            height: inherit;
+                            margin: 0;
+                            .work-content-head {
+                                font-size: 1.1rem;
+                                padding-top: 0;
+                                padding-bottom: 7px;
+                            }
+                            .work-content-desc {
+                                text-align: center;
+                                color: rgba($color: $halfWhite, $alpha: 0.8);
+                                font-size: 0.7rem;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    #skills {
+        min-height: 100vh;
+        width: 100%;
+        .wrapper {
+            width: 100%;
+            .skills-content {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: flex-end;
+                padding: 6rem 0;
+                padding-bottom: 2.5rem;
+                padding-left: 2rem;
+                height: auto;
+                margin: auto 8rem;
+                .skills-head-div {
+                    .skills-head {
+                        color: $halfWhite;
+                        align-self: center;
+                        font-size: 3rem;
+                        font-weight: bold;
+                        span {
+                            color: $peach;
+                        }
+                    }
+                    .skills-head-hr {
+                        display: block;
+                        margin-top: 8px;
+                        border: 0px solid $peach;
+                        margin-left: -38%;
+                        background: $peach;
+                        border-radius: 5px;
+                        z-index: 1;
+                    }
+                }
+                .skills-main {
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    flex-direction: row;
+                    width: 100%;
+                    flex-wrap: wrap;
+                    gap: 1rem;
+                    margin-top: 5rem;
+                    .skills-logos {
+                        display: flex;
+                        flex-wrap: wrap;
+                        gap: 2rem;
+                        justify-content: center;
+                        align-items: flex-start;
+                        width: 50%;
+                        .skills-img {
+                            width: 5rem;
+                            background: rgba($color: $level3Dark, $alpha: 0.6);
+                            backdrop-filter: blur(5px);
+                            border-radius: 50%;
+                            padding: 1.3rem;
+                            transition: box-shadow 300ms ease-in-out;
+                            &:hover {
+                                animation: hvr-wobble-horizontal 1s;
+                                box-shadow: -1px 7px 40px -30px rgba(196, 194, 196, 1);
+                            }
+                            @keyframes hvr-wobble-horizontal {
+                                16.65% {
+                                    -webkit-transform: translateX(4px);
+                                    transform: translateX(4px);
+                                }
+                                33.3% {
+                                    -webkit-transform: translateX(-3px);
+                                    transform: translateX(-3px);
+                                }
+                                49.95% {
+                                    -webkit-transform: translateX(2px);
+                                    transform: translateX(2px);
+                                }
+                                66.6% {
+                                    -webkit-transform: translateX(-1px);
+                                    transform: translateX(-1px);
+                                }
+                                83.25% {
+                                    -webkit-transform: translateX(1px);
+                                    transform: translateX(1px);
+                                }
+                                100% {
+                                    -webkit-transform: translateX(0);
+                                    transform: translateX(0);
+                                }
+                            }
+                        }
+                    }
+                    .skills-desc {
+                        align-self: flex-start;
+                        flex: 1;
+                        display: flex;
+                        border-left: 0px solid $peach;
+                        justify-content: center;
+                        align-items: flex-start;
+                        padding-left: 2rem;
+                        margin-left: 3rem;
+                        padding-top: 0.5rem;
+                        flex-direction: column;
+                        gap: 1.5rem;
+                        .skills-year {
+                            color: $halfWhite;
+                            display: flex;
+                            align-items: flex-start;
+                            gap: 4rem;
+                            .skills-current-year {
+                                transition: color 300ms ease-in-out;
+                                &:hover {
+                                    color: $peach;
+                                }
+                            }
+                            .skills-year-desc {
+                                display: flex;
+                                flex-direction: column;
+                                align-items: flex-start;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    #contact {
+        min-height: 100vh;
+        width: 100%;
+        .wrapper {
+            width: 100%;
+            .contact-content {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                padding: 6rem 0;
+                padding-bottom: 1.5rem;
+                padding-left: 2rem;
+                height: auto;
+                margin: auto 8rem;
+                .contact-head-div {
+                    display: flex;
+                    width: 100%;
+                    justify-content: space-between;
+                    flex-direction: row;
+                    .contact-head {
+                        display: flex;
+                        flex-direction: column;
+                        color: $halfWhite;
+                        justify-content: flex-start;
+                        width: 100%;
+                        p {
+                            font-size: 3rem;
+                            font-weight: bold;
+                        }
+                        .contact-head-hr {
+                            display: block;
+                            margin-top: 5px;
+                            border: 1px solid $peach;
+                            margin-left: -10%;
+                            background: $peach;
+                            border-radius: 5px;
+                            z-index: 1;
+                        }
+                    }
+                    .contact-top {
+                        width: 100%;
+                        display: flex;
+                        flex-direction: row;
+                        justify-content: flex-end;
+                        align-items: center;
+                        gap: 4rem;
+                        .contact-phone {
+                            display: flex;
+                            flex-direction: column;
+                            justify-content: center;
+                            align-items: center;
+                            gap: 0.3rem;
+                            i {
+                                color: $peach;
+                                background: rgba($color: $level3Dark, $alpha: 0.6);
+                                backdrop-filter: blur(5px);
+                                border-radius: 50%;
+                                padding: 1.2rem;
+                                font-size: 1rem;
+                            }
+                            .phone-head {
+                                font-size: 0.8rem;
+                                color: $peach;
+                            }
+                            .phone-content {
+                                font-size: 0.7rem;
+                            }
+                        }
+                        .contact-email {
+                            display: flex;
+                            flex-direction: column;
+                            justify-content: center;
+                            align-items: center;
+                            gap: 0.3rem;
+                            margin-top: 1px;
+                            i {
+                                color: $peach;
+                                background: rgba($color: $level3Dark, $alpha: 0.6);
+                                backdrop-filter: blur(5px);
+                                border-radius: 50%;
+                                padding: 1.2rem;
+                                font-size: 1rem;
+                            }
+                            .email-head {
+                                font-size: 0.8rem;
+                                color: $peach;
+                            }
+                            .email-content {
+                                font-size: 0.7rem;
+                                transition: color 300ms ease;
+                                &:hover {
+                                    color: $peach;
+                                }
+                            }
+                        }
+                    }
+                }
+                .contact-main {
+                    display: flex;
+                    color: $halfWhite;
+                    width: 100%;
+                    flex-direction: row;
+                    justify-content: center;
+                    align-self: center;
+                    align-items: center;
+                    gap: 8rem;
+                    margin-top: 7%;
+                    .contact-form {
+                        display: flex;
+                        color: $halfWhite;
+                        flex-direction: column;
+                        justify-content: flex-start;
+                        align-items: center;
+                        align-self: center;
+                        width: 100%;
+                        border-radius: 10px;
+                        padding: 2rem;
+                        background: rgba($color: $level3Dark, $alpha: 0.6);
+                        backdrop-filter: blur(5px);
+                        gap: 2rem;
+                        .field-div {
+                            display: flex;
+                            flex-direction: row;
+                            width: 100%;
+                            justify-content: space-between;
+                            align-items: center;
+                            gap: 2rem;
+                            label {
+                                padding-right: 5rem;
+                            }
+                            input {
+                                width: 50%;
+                                background: rgba($color: $level3Dark, $alpha: 0.6);
+                                backdrop-filter: blur(5px);
+                                border-radius: 4px;
+                                border: 0;
+                                border-bottom: 2px solid $peach;
+                                transition: all 300ms ease;
+                                color: $halfWhite;
+                                padding: 5px;
+                                &:focus {
+                                    border-bottom: 2px solid $halfWhite;
+                                }
+                            }
+                        }
+                        .field-div-textArea {
+                            display: flex;
+                            flex-direction: row;
+                            width: 100%;
+                            justify-content: space-between;
+                            align-items: flex-start;
+                            gap: 2rem;
+                            label {
+                                padding-right: 3.8rem;
+                            }
+                            textarea {
+                                width: 100%;
+                                background: rgba($color: $level3Dark, $alpha: 0.6);
+                                backdrop-filter: blur(5px);
+                                border-radius: 4px;
+                                border: 0;
+                                border-bottom: 2px solid $peach;
+                                transition: all 300ms ease;
+                                color: $halfWhite;
+                                padding: 3px;
+                                &:focus {
+                                    border-bottom: 2px solid $halfWhite;
+                                }
+                            }
+                        }
+                        .btn-submit {
+                            padding: 5px 15px;
+                            background: $halfWhite;
+                            color: $level1Dark;
+                            border: 0;
+                            width: 40%;
+                            border-radius: 5px;
+                            transition: all 300ms ease;
+                            &:hover {
+                                color: $level1Dark;
+                                background: $peach
+                            }
+                        }
+                    }
+                    .contact-logo {
+                        svg {
+                            position: relative;
+                            right: 0;
+                            height: 60vh;
+                            align-self: center;
+                            z-index: 0;
+                            .kLogo {
+                                fill: transparent;
+                            }
+                            .rect {
+                                fill: transparent;
+                            }
+                        }
+                    }
+                }
+                .contact-bottom {
+                    display: flex;
+                    width: 100%;
+                    margin-top: 1.5rem;
+                    align-items: center;
+                    justify-content: space-between;
+                    flex-direction: row;
+                    .contact-social-media ul {
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        gap: 3rem;
+                        li {
+                            a {
+                                color: $halfWhite;
+                                font-size: 1.2rem;
+                                transition: all 300ms ease;
+                                &:hover {
+                                    color: $peach;
+                                }
+                            }
+                        }
+                    }
+                    .copyright {
+                        display: flex;
+                        flex-direction: column;
+                        justify-content: center;
+                        align-items: flex-start;
+                        gap: 1px;
+                        color: $halfWhite;
+                        p {
+                            font-size: 0.7rem;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    footer {
+        background: rgba($color: $level3Dark, $alpha: 0.6);
+        backdrop-filter: blur(5px);
+        padding: 0.8rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        p {
+            color: $peach;
+            border-left: 1px solid $halfWhite;
+            border-right: 1px solid $halfWhite;
+            padding: 0px 1rem;
+            font-size: 0.8rem;
+        }
+    }
+    #overlay {
+        opacity: 0;
+        transform: translateX(200%);
+        position: absolute;
+        top: 100vh;
+        margin: 5% 25%;
+        width: 50%;
+        height: 78%;
+        border-radius: 10px;
+        background: rgba($color: $level3Dark, $alpha: 0.6);
+        backdrop-filter: blur(8px);
+        transition: all 300ms ease;
+        z-index: 10;
+    }
+    #tagline {
+        border-radius: 5px;
+        border-color: white;
+        outline: none;
+        padding: 5px 5px;
+        font-size: 0.9rem;
+        width: 80%;
+        justify-self: center;
+        align-self: center;
+        color: $halfWhite;
+    }
+    #note {
+        border-radius: 5px;
+        outline: none;
+        padding: 5px 5px;
+        font-size: 0.9rem;
+        color: $halfWhite;
+        width: 80%;
+        justify-self: center;
+        align-self: center;
+    }
+    .modalBtn {
+        display: block;
+        width: 20%;
+        text-align: center;
+        margin: 0 auto;
+        font-size: 0.8rem;
+        padding: 7px;
+        border-radius: 5px;
+        border: none;
+        background-color: $halfWhite;
+        color: $level1Dark;
+        margin-top: 5px;
+        transition: all 300ms ease;
+    }
+}
+
+.text-muted {
+    color: rgba($color: $halfWhite, $alpha: 0.6);
+}
+
+.activeBtn {
+    color: $peach !important;
+}
+
+.displayNone {
+    display: none;
+}
+
+.displayBlock {
+    display: flex;
+}
+
+//for large screens
+@media screen and (min-width:1500px) {
+    #home {
+        .nameDiv {
+            padding-left: 9rem;
+            padding-bottom: 1rem;
+            .nameDiv1 {
+                margin-bottom: 8.5rem;
+                .waveEmoji {
+                    font-size: 2.8rem;
+                }
+                .content {
+                    p {
+                        font-size: 1rem;
+                    }
+                    .name {
+                        font-size: 2.8rem;
+                    }
+                }
+            }
+            .roleDiv1 {
+                padding: 0.8rem 2rem;
+                margin-bottom: 3rem;
+                .role {
+                    font-size: 0.9rem;
+                }
+            }
+        }
+    }
+    #about {
+        .wrapper {
+            .contentAbout {
+                margin: auto 10rem;
+                padding-top: 3.5rem;
+                hr {
+                    width: 60%;
+                    height: 2px;
+                    background: $peach;
+                    border: none;
+                    z-index: 1;
+                    border-radius: 5px;
+                    margin-bottom: 2rem;
+                    margin-top: 0.7rem;
+                }
+                .about-head {
+                    font-size: 2rem;
+                    margin: 0;
+                    line-height: 1.7;
+                }
+                .about-name {
+                    font-size: 7.5rem;
+                }
+                .about-content {
+                    font-size: 1.55rem;
+                }
+            }
+            .about-contact {
+                button {
+                    padding: 10px 2rem;
+                    font-size: 1.3rem;
+                    transition: all 300ms ease;
+                    &:hover {
+                        border: 2px solid $halfWhite;
+                        color: $halfWhite;
+                    }
+                }
+                ul {
+                    padding-top: 5px;
+                    li {
+                        a {
+                            padding: 0 3rem;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    #work {
+        .wrapper {
+            .work-content {
+                .work-head {
+                    font-size: 3.5rem;
+                }
+                .work-categories {
+                    gap: 3rem;
+                    padding-top: 3rem;
+                    li {
+                        a {
+                            font-size: 0.9rem;
+                        }
+                    }
+                }
+                .work-cards {
+                    padding: 2rem 0rem;
+                    padding-bottom: 0;
+                    transition: all 1s ease-in-out;
+                    .card-outer {
+                        .work-content {
+                            padding-bottom: 1rem;
+                            height: inherit;
+                            margin: 0;
+                            .work-content-head {
+                                font-size: 1.4rem;
+                            }
+                            .work-content-desc {
+                                font-size: 0.85rem;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    #skills {
+        .wrapper {
+            .skills-content {
+                padding-bottom: 2.5rem;
+                padding-left: 4rem;
+                margin: auto 8rem;
+                .skills-head-div {
+                    .skills-head {
+                        font-size: 3.5rem;
+                    }
+                    .skills-head-hr {
+                        margin-top: 2px;
+                    }
+                }
+                .skills-main {
+                    .skills-logos {
+                        .skills-img {
+                            width: 5.5rem;
+                            padding: 1.1rem;
+                        }
+                    }
+                    .skills-desc {
+                        padding-left: 4rem;
+                        margin-left: 4rem;
+                        padding-top: 0.8rem;
+                        gap: 3rem;
+                        .skills-year {
+                            gap: 4.5rem;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    #contact {
+        .wrapper {
+            .contact-content {
+                margin: auto 10rem;
+                .contact-head-div {
+                    .contact-head {
+                        p {
+                            font-size: 3.5rem;
+                        }
+                    }
+                    .contact-top {
+                        gap: 4.5rem;
+                        .contact-phone {
+                            gap: 0.4rem;
+                            i {
+                                padding: 1.3rem;
+                                font-size: 1.3rem;
+                            }
+                            .phone-head {
+                                font-size: 0.9rem;
+                            }
+                            .phone-content {
+                                font-size: 0.7rem;
+                            }
+                        }
+                        .contact-email {
+                            gap: 0.4rem;
+                            i {
+                                padding: 1.3rem;
+                                font-size: 1.3rem;
+                            }
+                            .email-head {
+                                font-size: 0.9rem;
+                            }
+                            .email-content {
+                                a {
+                                    font-size: 0.7rem;
+                                }
+                            }
+                        }
+                    }
+                }
+                .contact-main {
+                    margin-top: 6%;
+                    .contact-form {
+                        gap: 2.5rem;
+                        .btn-submit {
+                            padding: 7px 15px;
+                        }
+                    }
+                    .contact-logo {
+                        svg {
+                            height: 60vh;
+                        }
+                    }
+                }
+                .contact-bottom {
+                    margin-top: 2rem;
+                    .contact-social-media ul {
+                        gap: 3rem;
+                    }
+                    .copyright {
+                        gap: 3px;
+                        p {
+                            font-size: 0.85rem;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@keyframes wave {
+    0% {
+        transform: rotateZ(-15deg);
+    }
+    50% {
+        transform: rotateZ(0deg);
+    }
+    100% {
+        transform: rotateZ(-15deg);
+    }
+}
+
+@keyframes clip {
+    from {
+        clip-path: polygon(0 0, 0 0, 0 99%, 0 100%);
+        //     clip-path: polygon(51% 48%, 53% 48%, 52% 50%, 50% 49%);
+    }
+    to {
+        clip-path: polygon(0 0, 100% 1%, 100% 100%, 0 100%);
+        // clip-path: polygon(100% 0, 0 0, 0 100%, 100% 100%);
+    }
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateX(-100%);
+        opacity: 0.5;
+    }
+    to {
+        transform: translateX(0%);
+        opacity: 1;
+    }
+}
+
+
+/* cursor animation */
+
+.cursor1 {
+    position: fixed;
+    width: 40px;
+    height: 40px;
+    border: 2px solid $halfWhite;
+    border-radius: 50%;
+    left: 0;
+    top: 0;
+    pointer-events: none;
+    background-color: transparent;
+    transform: translate(-50%, -50%) scale(0.9);
+    transition: 0.1s;
+    z-index: 1000000;
+}
+
+.cursor2 {
+    position: fixed;
+    width: 8px;
+    height: 8px;
+    background-color: rgba($color: $halfWhite, $alpha: 0.7);
+    border-radius: 50%;
+    left: 0;
+    top: 0;
+    pointer-events: none;
+    transform: translate(-50%, -50%);
+    transition: 0.15s;
+    z-index: 1000000;
+}
+
+.cursor1-2 {
+    position: fixed;
+    width: 35px;
+    height: 35px;
+    border: 2px solid rgba($color: $halfWhite, $alpha: 0.2);
+    border-radius: 50%;
+    left: 0;
+    top: 0;
+    pointer-events: none;
+    transition: 0.1s;
+    z-index: 1000000;
+    transform: translate(-50%, -50%) scale(1.2);
+    background-color: #4e4d4d;
+    opacity: 0.5;
+}
+
+.cursor2-2 {
+    opacity: 0;
+}
+
+
+/* cursor animation end */

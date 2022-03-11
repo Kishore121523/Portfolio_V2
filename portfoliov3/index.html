@@ -1,0 +1,782 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="./styles/css/lightbox.css">
+    <link rel="stylesheet" href="./styles/css/index.css">
+    <title>Kishore</title>
+</head>
+
+<body>
+
+
+    <header>
+
+        <!-- Logo -->
+        <a href="#" class="logo"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 101.17 129.44"><defs><style>.cls-1{fill:#d7d5d5;}</style></defs><g id="Layer_2" data-name="Layer 2"><g id="Layer_1-2" data-name="Layer 1"><rect class="cls-1" y="13.7" width="17.75" height="102.12" rx="1.42"/><path class="cls-1" d="M24.81,46.49V1.42A1.42,1.42,0,0,1,26.23,0H99.75a1.41,1.41,0,0,1,1.42,1.42V128a1.42,1.42,0,0,1-1.42,1.42H26.23A1.43,1.43,0,0,1,24.81,128V81.82A1.42,1.42,0,0,1,27.4,81L51,115.11a1.41,1.41,0,0,0,1.16.61h19a1.42,1.42,0,0,0,1.16-2.23L38.48,65.24a1.41,1.41,0,0,1,0-1.65L72.26,17.13a1.42,1.42,0,0,0-1.15-2.25H52.88a1.4,1.4,0,0,0-1.12.56L27.36,47.35A1.42,1.42,0,0,1,24.81,46.49Z"/></g></g></svg></span>
+        </a>
+
+        <nav>
+            <!-- Close icon -->
+            <svg class="close" width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M24 9.4L22.6 8L16 14.6L9.4 8L8 9.4L14.6 16L8 22.6L9.4 24L16 17.4L22.6 24L24 22.6L17.4 16L24 9.4Z" fill="black"/>
+            </svg>
+
+            <ul id="navLinks" class="navBarLinks">
+                <li>
+                    <div></div><a data-hover class="link active home" href="#home">Home</a></li>
+                <li>
+                    <div></div><a data-hover class="link about" href="#about">About</a></li>
+                <li>
+                    <div></div><a data-hover class="link work" href="#work">work</a></li>
+                <li>
+                    <div></div><a data-hover class="link skills" href="#skills">Skills</a></li>
+                <li>
+                    <div></div><a data-hover class="link contact" href="#contact">Contact</a></li>
+            </ul>
+
+            <ul class="socialMedia">
+                <li>
+                    <a data-hover href="https://www.linkedin.com/in/kishore-yogeswaran-7946291a6/" target="_blank"><i class="fa-brands fa-linkedin"></i></a>
+                </li>
+                <li>
+                    <a data-hover href="https://github.com/Kishore121523" target="_blank"><i class="fa-brands fa-github"></i></a>
+                </li>
+                <li>
+                    <a data-hover href="https://www.instagram.com/_kishoredesigns_/" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+                </li>
+            </ul>
+
+        </nav>
+
+        <!-- Hamburger icon -->
+        <svg class="menu" width="48" height="32" viewBox="0 0 48 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M24 32H0V26.6667H24V32ZM48 18.6667H0V13.3333H48V18.6667ZM48 5.33333H24V0H48V5.33333Z" fill="white"/>
+      </svg>
+    </header>
+
+    <div class="app__navigation">
+        <a data-hover href="#home" class="navigation-dot activeDot homeDot"></a>
+        <a data-hover href="#about" class="navigation-dot aboutDot"></a>
+        <a data-hover href="#work" class="navigation-dot workDot"></a>
+        <a data-hover href="#skills" class="navigation-dot skillsDot"></a>
+        <a data-hover href="#contact" class="navigation-dot contactDot"></a>
+    </div>
+
+    <div class="letterAnim">
+        <svg id="demo-svg" width="250" height="15">
+        <path class="el" stroke="red" stroke-width="0.5" fill="none" d="M10.223,13h3.221V1.433H10.223V13Zm5.335,0H18.7V6.388l2.94,4.493H21.7L24.66,6.355V13h3.188V1.433H24.462L21.7,5.909,18.945,1.433H15.558V13ZM28.97,13h3.37l0.826-2.065h4.46L38.468,13H41.9L36.981,1.35H33.892Zm5.137-4.559,1.3-3.287L36.7,8.437H34.107Zm14.072,4.79A7.818,7.818,0,0,0,53.2,11.443V6.24H47.882V8.585h2.279v1.4a3.268,3.268,0,0,1-1.85.479,3.054,3.054,0,0,1-3.139-3.2V7.231A3.037,3.037,0,0,1,48.13,4.059a4.079,4.079,0,0,1,2.792,1.09L52.8,2.886A6.744,6.744,0,0,0,48.113,1.2a6,6,0,0,0-6.228,6.013V7.247A5.945,5.945,0,0,0,48.179,13.227ZM55.049,13h3.221V1.433H55.049V13Zm5.335,0h3.172V6.653L68.495,13H71.3V1.433H68.131V7.545L63.374,1.433h-2.99V13ZM73.35,13h9.383V10.27H76.521V8.437h5.55V5.909h-5.55V4.158H82.65V1.433h-9.3V13Zm10.7"/ />
+        <path class="peach" stroke="red" stroke-width="0.5" fill="none" d="M97.457,13.227a5.83,5.83,0,0,0,5.12-2.61L100.166,8.9a3.159,3.159,0,0,1-2.61,1.4A2.86,2.86,0,0,1,94.8,7.214V7.181a2.859,2.859,0,0,1,2.759-3.056,3.1,3.1,0,0,1,2.527,1.355L102.5,3.613A5.662,5.662,0,0,0,97.589,1.2a5.94,5.94,0,0,0-6.1,6.013V7.247A5.872,5.872,0,0,0,97.457,13.227Zm6.49-.231h3.2v-3.5h1.4l2.329,3.5h3.7l-2.759-4.031a3.657,3.657,0,0,0,2.379-3.552V5.381a3.586,3.586,0,0,0-1.024-2.693,5.054,5.054,0,0,0-3.766-1.255h-5.468V13Zm3.2-6.013V4.208h2.1c1.074,0,1.735.463,1.735,1.371V5.612c0,0.842-.628,1.371-1.718,1.371h-2.114ZM115.822,13h9.383V10.27h-6.211V8.437h5.55V5.909h-5.55V4.158h6.128V1.433h-9.3V13Zm10.092,0h3.37l0.825-2.065h4.46L135.412,13h3.436L133.925,1.35h-3.089Zm5.137-4.559,1.305-3.287,1.288,3.287h-2.593ZM141.308,13h3.2V4.241h3.469V1.433H137.839V4.241h3.469V13Zm8.076,0h9.382V10.27h-6.211V8.437h5.551V5.909h-5.551V4.158h6.129V1.433h-9.3V13Zm10.7" />
+        <path class="el" stroke="red" stroke-width="0.5" fill="none" d="M168.445,12.6h3.221V1.036h-3.221V12.6Zm5.334,0h3.172V6.256L181.89,12.6H184.7V1.036h-3.171V7.148l-4.758-6.112h-2.99V12.6Zm17.508,0.2c2.808,0,4.675-1.4,4.675-3.766V9c0-2.164-1.652-3.023-4.311-3.6-1.6-.363-2-0.595-2-1.123V4.241c0-.413.38-0.743,1.156-0.743a5.8,5.8,0,0,1,3.238,1.14l1.6-2.263A7.275,7.275,0,0,0,190.891.838c-2.775,0-4.477,1.553-4.477,3.7V4.571c0,2.379,1.9,3.072,4.361,3.634,1.569,0.363,1.949.628,1.949,1.107V9.345c0,0.5-.462.793-1.321,0.793a5.957,5.957,0,0,1-3.75-1.388l-1.784,2.131A8.078,8.078,0,0,0,191.287,12.8Zm6.226-.2h3.2V9.3H202.3c2.874,0,4.972-1.437,4.972-4.163V5.1c0-2.56-1.883-4.064-4.807-4.064h-4.956V12.6Zm3.2-5.815V3.729h1.5c1.157,0,1.85.529,1.85,1.52V5.282a1.573,1.573,0,0,1-1.833,1.5h-1.52ZM208.7,12.6h3.221V1.036H208.7V12.6Zm5.335,0h3.2V9.1h1.4l2.33,3.5h3.7l-2.759-4.031a3.657,3.657,0,0,0,2.379-3.552V4.984a3.586,3.586,0,0,0-1.024-2.693A5.055,5.055,0,0,0,219.5,1.036H214.03V12.6Zm3.2-6.013V3.812h2.1c1.074,0,1.735.463,1.735,1.371V5.216c0,0.842-.628,1.371-1.718,1.371h-2.115Zm8.671,6.013h9.383V9.874h-6.211V8.04h5.55V5.513h-5.55V3.762h6.128V1.036h-9.3V12.6Zm10.7" />
+    </svg></div>
+
+    <!-- Home Section -->
+    <section id="home">
+        <div class="nameDiv">
+            <div class="nameDiv1">
+                <div class="waveEmoji">👋🏽</div>
+                <div class="content">
+                    <p>Hi, I am</p>
+                    <p class="name">Kishore</p>
+                </div>
+            </div>
+
+            <div class="roleDiv1">
+                <p class="role">Web Developer</p>
+                <p class="role">Designer</p>
+            </div>
+        </div>
+
+    </section>
+
+    <!-- About section -->
+    <section id="about">
+        <div class="wrapper">
+            <div class="contentAbout">
+                <p class="about-head">Developer - Designer</p>
+                <p class="about-name">Kishore</p>
+                <hr class="about-head-hr">
+                <p class="about-content">Hello, Meet Kishore! <span>Web developer </span>with a sound knowledge on User Experience and Interaction Design. </p>
+
+                <div class="about-contact">
+                    <button class="about-hireMe" data-hover>Hire me</button>
+                    <ul>
+                        <li>
+                            <a data-hover href="https://www.linkedin.com/in/kishore-yogeswaran-7946291a6/" target="_blank"><i class="fa-brands fa-linkedin"></i></a>
+                        </li>
+                        <li>
+                            <a data-hover href="https://github.com/Kishore121523" target="_blank"><i class="fa-brands fa-github"></i></a>
+                        </li>
+                        <li>
+                            <a data-hover href="https://www.instagram.com/_kishoredesigns_/" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+                        </li>
+                    </ul>
+                    <div class="line">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 101.17 129.44"><defs><style>.cls-1{fill:#d7d5d5;}</style></defs><g id="Layer_2" data-name="Layer 2"><g id="Layer_1-2" data-name="Layer 1"><rect class="cls-1" y="13.7" width="17.75" height="102.12" rx="1.42"/><path class="cls-1" d="M24.81,46.49V1.42A1.42,1.42,0,0,1,26.23,0H99.75a1.41,1.41,0,0,1,1.42,1.42V128a1.42,1.42,0,0,1-1.42,1.42H26.23A1.43,1.43,0,0,1,24.81,128V81.82A1.42,1.42,0,0,1,27.4,81L51,115.11a1.41,1.41,0,0,0,1.16.61h19a1.42,1.42,0,0,0,1.16-2.23L38.48,65.24a1.41,1.41,0,0,1,0-1.65L72.26,17.13a1.42,1.42,0,0,0-1.15-2.25H52.88a1.4,1.4,0,0,0-1.12.56L27.36,47.35A1.42,1.42,0,0,1,24.81,46.49Z"/></g></g></svg></span>
+
+        <div class="section">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+
+        </div>
+    </section>
+
+    <!-- Work section -->
+    <section id="work">
+        <div class="wrapper">
+            <div class="work-content">
+                <p class="work-head">My <span>Portfolio</span> Section</p>
+
+                <ul class="work-categories">
+                    <li><a data-hover class="webdevBtn activeBtn" href="#">WebDev</a></li>
+                    <li><a data-hover class="brandBtn" href="#">Branding</a></li>
+                    <li><a data-hover class="graphicBtn" href="#">Graphic Design</a></li>
+                    <li><a data-hover class="marketBtn" href="#">Marketing</a></li>
+                </ul>
+
+                <!-- webdev -->
+                <div class="displayBlock">
+                    <div id="webdev" class="work-cards">
+
+                        <div class="card-outer">
+                            <div class="divImg">
+                                <img data-src="./assets/WebDev/notezy.jpg" alt="">
+                                <div class="middle">
+                                    <a data-hover href="https://chrome.google.com/webstore/detail/notezy/nlgngaailkikjkecgjogfdblapgalepl" target="_blank"><i class="fa-solid fa-eye"></i></a>
+                                    <a data-hover href="https://github.com/Kishore121523/Notezy" target="_blank"><i class="fa-brands fa-github"></i></a>
+                                </div>
+                            </div>
+
+                            <div class="category">
+                                <p class="category-text">WebDev</p>
+                            </div>
+
+                            <div class="work-content">
+                                <p class="work-content-head">Notezy</p>
+                                <p class="work-content-desc">An CRUD Based Note Taking Exntension with modern UI</p>
+                            </div>
+                        </div>
+                        <div class="card-outer">
+                            <div class="divImg">
+                                <img data-src="./assets/WebDev/weather.jpg" alt="">
+                                <div class="middle">
+                                    <a data-hover href="https://kishore121523.github.io/Weathery/" target="_blank"><i class="fa-solid fa-eye"></i></a>
+                                    <a data-hover href="https://github.com/Kishore121523/Weathery" target="_blank"><i class="fa-brands fa-github"></i></a>
+                                </div>
+                            </div>
+
+                            <div class="category">
+                                <p class="category-text">WebDev</p>
+                            </div>
+
+                            <div class="work-content">
+                                <p class="work-content-head">Weathery</p>
+                                <p class="work-content-desc">A Weather App which displays weather based on your location.</p>
+                            </div>
+                        </div>
+                        <div class="card-outer">
+                            <div class="divImg">
+                                <img data-src="./assets/WebDev/glozzom.jpg" alt="">
+                                <div class="middle">
+                                    <a data-hover href="https://kishore121523.github.io/Glozzom---Multi-page-website/" target="_blank"><i class="fa-solid fa-eye"></i></a>
+                                    <a data-hover href="https://github.com/Kishore121523/Glozzom---Multi-page-website" target="_blank"><i class="fa-brands fa-github"></i></a>
+                                </div>
+                            </div>
+
+                            <div class="category">
+                                <p class="category-text">WebDev</p>
+                            </div>
+
+                            <div class="work-content">
+                                <p class="work-content-head">Glozzom</p>
+                                <p class="work-content-desc">A modern and minimal business website (Demo Project)</p>
+                            </div>
+                        </div>
+                        <div class="card-outer">
+                            <div class="divImg">
+                                <img data-src="./assets/WebDev/donate.jpg" alt="">
+                                <div class="middle">
+                                    <a data-hover href="https://kishore121523.github.io/Donate_spark/" target="_blank"><i class="fa-solid fa-eye"></i></a>
+                                    <a data-hover href="https://github.com/Kishore121523/Donate_spark" target="_blank"><i class="fa-brands fa-github"></i></a>
+                                </div>
+                            </div>
+
+                            <div class="category">
+                                <p class="category-text">WebDev</p>
+                            </div>
+
+                            <div class="work-content">
+                                <p class="work-content-head">Don-Spark</p>
+                                <p class="work-content-desc">A Donation Based Website with payment integrated</p>
+                            </div>
+                        </div>
+                        <div class="card-outer">
+                            <div class="divImg">
+                                <img data-src="./assets/WebDev/mizuse.jpg" alt="">
+                                <div class="middle">
+                                    <a data-hover href="https://kishore121523.github.io/mizuse/" target="_blank"><i class="fa-solid fa-eye"></i></a>
+                                    <a data-hover href="https://github.com/Kishore121523/mizuse" target="_blank"><i class="fa-brands fa-github"></i></a>
+                                </div>
+                            </div>
+
+                            <div class="category">
+                                <p class="category-text">WebDev</p>
+                            </div>
+
+                            <div class="work-content">
+                                <p class="work-content-head">Mizuxe</p>
+                                <p class="work-content-desc">A landing page for showcasing a Book (Demo Project)</p>
+                            </div>
+                        </div>
+                        <div class="card-outer">
+                            <div class="divImg">
+                                <img data-src="./assets/WebDev/rice mill.jpg" alt="">
+                                <div class="middle">
+                                    <a data-hover href="https://kishore121523.github.io/Professional-Website---Rice-Mill-Association/" target="_blank"><i class="fa-solid fa-eye"></i></a>
+                                    <a data-hover href="https://github.com/Kishore121523/Professional-Website---Rice-Mill-Association" target="_blank"><i class="fa-brands fa-github"></i></a>
+                                </div>
+                            </div>
+
+                            <div class="category">
+                                <p class="category-text">WebDev</p>
+                            </div>
+
+                            <div class="work-content">
+                                <p class="work-content-head">Rice Mill Site</p>
+                                <p class="work-content-desc">A business site for Rice Mill Dealers</p>
+                            </div>
+                        </div>
+
+                        <div class="card-outer">
+                            <div class="divImg">
+                                <img data-src="./assets/WebDev/travel.jpg" alt="">
+                                <div class="middle">
+                                    <a data-hover href="https://kishore121523.github.io/Travel/" target="_blank"><i class="fa-solid fa-eye"></i></a>
+                                    <a data-hover href="https://github.com/Kishore121523/Travel" target="_blank"><i class="fa-brands fa-github"></i></a>
+                                </div>
+                            </div>
+
+                            <div class="category">
+                                <p class="category-text">WebDev</p>
+                            </div>
+
+                            <div class="work-content">
+                                <p class="work-content-head">Travillie</p>
+                                <p class="work-content-desc">Webpage designed for a travel agency (Demo Project)</p>
+                            </div>
+                        </div>
+
+
+                    </div>
+
+                </div>
+
+                <div class="displayNone">
+                    <div id="brand" class="work-cards">
+
+                        <div class="card-outer">
+                            <div class="divImg">
+                                <a data-hover href="./assets/Branding/a.jpg" data-lightbox="brand-1"> <img data-src="./assets/Branding/cropped/a.jpg" alt=""></a>
+                            </div>
+                            <div class="category">
+                                <p class="category-text">Branding</p>
+                            </div>
+                            <div class="work-content">
+                                <p class="work-content-head">Tent Card</p>
+                                <p class="work-content-desc">Tent Card Designed for a startup</p>
+                            </div>
+                        </div>
+
+                        <div class="card-outer">
+                            <div class="divImg">
+                                <a data-hover href="./assets/Branding/b.jpg" data-lightbox="brand-2"> <img data-src="./assets/Branding/b.jpg" alt=""></a>
+                            </div>
+                            <div class="category">
+                                <p class="category-text">Branding</p>
+                            </div>
+                            <div class="work-content">
+                                <p class="work-content-head">Thank you card!</p>
+                                <p class="work-content-desc">A token of love for ya all, clean and pleasant looking design!</p>
+                            </div>
+                        </div>
+
+                        <div class="card-outer">
+                            <div class="divImg">
+                                <a data-hover href="./assets/Branding/d.jpg" data-lightbox="brand-3"> <img data-src="./assets/Branding/cropped/d.jpg" alt=""></a>
+                            </div>
+                            <div class="category">
+                                <p class="category-text">Branding</p>
+                            </div>
+                            <div class="work-content">
+                                <p class="work-content-head">Email Promotion</p>
+                                <p class="work-content-desc">Creatively written and designed promotion</p>
+                            </div>
+                        </div>
+
+                        <div class="card-outer">
+                            <div class="divImg">
+                                <a data-hover href="./assets/Branding/e.jpg" data-lightbox="brand-4"> <img data-src="./assets/Branding/cropped/e.jpg" alt=""></a>
+                            </div>
+                            <div class="category">
+                                <p class="category-text">Branding</p>
+                            </div>
+                            <div class="work-content">
+                                <p class="work-content-head">Menu Card</p>
+                                <p class="work-content-desc">Menu Card Design for a Multicuisine Restaurant (Pitch)</p>
+                            </div>
+                        </div>
+
+                        <div class="card-outer">
+                            <div class="divImg">
+                                <a data-hover href="./assets/Branding/f.jpg" data-lightbox="brand-5"> <img data-src="./assets/Branding/cropped/f.jpg" alt=""></a>
+                            </div>
+                            <div class="category">
+                                <p class="category-text">Branding</p>
+                            </div>
+                            <div class="work-content">
+                                <p class="work-content-head">Offer Promotion</p>
+                                <p class="work-content-desc">Make it pop! Make it crisp! Make it Clear!</p>
+                            </div>
+                        </div>
+
+                        <div class="card-outer">
+                            <div class="divImg">
+                                <a data-hover href="./assets/Branding/g.jpg" data-lightbox="brand-5"> <img data-src="./assets/Branding/cropped/g.jpg" alt=""></a>
+                            </div>
+                            <div class="category">
+                                <p class="category-text">Branding</p>
+                            </div>
+                            <div class="work-content">
+                                <p class="work-content-head">Menu Card</p>
+                                <p class="work-content-desc">Menu Card Design for a Multicuisine Restaurant (Pitch)</p>
+                            </div>
+                        </div>
+
+                        <div class="card-outer">
+                            <div class="divImg">
+                                <a data-hover href="./assets/Branding/h.jpg" data-lightbox="brand-5"> <img data-src="./assets/Branding/h.jpg" alt=""></a>
+                            </div>
+                            <div class="category">
+                                <p class="category-text">Branding</p>
+                            </div>
+                            <div class="work-content">
+                                <p class="work-content-head">Visiting Card</p>
+                                <p class="work-content-desc">Visiting card for employess for a Finance company</p>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+
+                <!-- 3rd -->
+                <div class="displayNone">
+                    <div id="graphic" class="work-cards">
+
+                        <div class="card-outer">
+                            <div class="divImg">
+                                <a data-hover href="./assets/conceptDes/c.jpg" data-lightbox="graphic-3"> <img data-src="./assets/conceptDes/cropped/c.jpg" alt=""></a>
+                            </div>
+                            <div class="category">
+                                <p class="category-text">Graphic Design</p>
+                            </div>
+                            <div class="work-content">
+                                <p class="work-content-head">A Gentle Reminder.</p>
+                                <p class="work-content-desc">Choose colors in accordance to the design's idea</p>
+                            </div>
+                        </div>
+
+                        <div class="card-outer">
+                            <div class="divImg">
+                                <a data-hover href="./assets/conceptDes/a.jpg" data-lightbox="graphic-1"> <img data-src="./assets/conceptDes/cropped/a.jpg" alt=""></a>
+                            </div>
+                            <div class="category">
+                                <p class="category-text">Graphic Design</p>
+                            </div>
+                            <div class="work-content">
+                                <p class="work-content-head">Afghan!</p>
+                                <p class="work-content-desc">Creativity and a Good Design, always goes hand in hand</p>
+                            </div>
+                        </div>
+
+                        <div class="card-outer">
+                            <div class="divImg">
+                                <a data-hover href="./assets/conceptDes/b.jpg" data-lightbox="graphic-2"> <img data-src="./assets/conceptDes/cropped/b.jpg" alt=""></a>
+                            </div>
+                            <div class="category">
+                                <p class="category-text">Graphic Design</p>
+                            </div>
+                            <div class="work-content">
+                                <p class="work-content-head">Practice</p>
+                                <p class="work-content-desc">The design should do all the talking...</p>
+                            </div>
+                        </div>
+
+                        <div class="card-outer">
+                            <div class="divImg">
+                                <a data-hover href="./assets/conceptDes/g.jpg" data-lightbox="graphic-4"> <img data-src="./assets/conceptDes/cropped/g.jpg" alt=""></a>
+                            </div>
+                            <div class="category">
+                                <p class="category-text">Graphic Design</p>
+                            </div>
+                            <div class="work-content">
+                                <p class="work-content-head">Pride</p>
+                                <p class="work-content-desc">A minimal design, yet it conveys all the details precisely</p>
+                            </div>
+                        </div>
+
+                        <div class="card-outer">
+                            <div class="divImg">
+                                <a data-hover href="./assets/conceptDes/h.jpg" data-lightbox="graphic-5"> <img data-src="./assets/conceptDes/cropped/h.jpg" alt=""></a>
+                            </div>
+                            <div class="category">
+                                <p class="category-text">Graphic Design</p>
+                            </div>
+                            <div class="work-content">
+                                <p class="work-content-head">Social-Me</p>
+                                <p class="work-content-desc">Using typography and contrast to bring out the idealogy behind</p>
+                            </div>
+                        </div>
+
+                        <div class="card-outer">
+                            <div class="divImg">
+                                <a data-hover href="./assets/conceptDes/f.jpg" data-lightbox="graphic-6"> <img data-src="./assets/conceptDes/cropped/f.jpg" alt=""></a>
+                            </div>
+                            <div class="category">
+                                <p class="category-text">Graphic Design</p>
+                            </div>
+                            <div class="work-content">
+                                <p class="work-content-head">Chai!</p>
+                                <p class="work-content-desc">A poster for all Coffee Lovers out there!</p>
+                            </div>
+                        </div>
+
+                        <div class="card-outer">
+                            <div class="divImg">
+                                <a data-hover href="./assets/conceptDes/e.jpg" data-lightbox="graphic-8"> <img data-src="./assets/conceptDes/cropped/e.jpg" alt=""></a>
+                            </div>
+                            <div class="category">
+                                <p class="category-text">Graphic Design</p>
+                            </div>
+                            <div class="work-content">
+                                <p class="work-content-head">10 to 30!</p>
+                                <p class="work-content-desc">A great mix of colors, typography and illustration!</p>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <!-- 4th -->
+                <div class="displayNone">
+
+                    <div id="market" class="work-cards">
+
+                        <div class="card-outer">
+                            <div class="divImg">
+                                <a href="./assets/SocialMedia/a.jpg" data-lightbox="market-1"> <img data-src="./assets/SocialMedia/cropped/a.jpg" alt=""></a>
+                            </div>
+                            <div class="category">
+                                <p class="category-text">Marketing</p>
+                            </div>
+                            <div class="work-content">
+                                <p class="work-content-head">Diet, what?</p>
+                                <p class="work-content-desc">Social Media Marketing for a startup.</p>
+                            </div>
+                        </div>
+                        <div class="card-outer">
+                            <div class="divImg">
+                                <a href="./assets/SocialMedia/b.jpg" data-lightbox="market-2"> <img data-src="./assets/SocialMedia/cropped/b.jpg" alt=""></a>
+                            </div>
+                            <div class="category">
+                                <p class="category-text">Marketing</p>
+                            </div>
+                            <div class="work-content">
+                                <p class="work-content-head">We got your back!</p>
+                                <p class="work-content-desc">Minimal yet Self Explanative design!</p>
+                            </div>
+                        </div>
+                        <div class="card-outer">
+                            <div class="divImg">
+                                <a href="./assets/SocialMedia/c.jpg" data-lightbox="market-3"> <img data-src="./assets/SocialMedia/cropped/c.jpg" alt=""></a>
+                            </div>
+                            <div class="category">
+                                <p class="category-text">Marketing</p>
+                            </div>
+                            <div class="work-content">
+                                <p class="work-content-head">Who's joining the club?</p>
+                                <p class="work-content-desc">Never forget to stick with the current trend!</p>
+                            </div>
+                        </div>
+                        <div class="card-outer">
+                            <div class="divImg">
+                                <a href="./assets/SocialMedia/h.jpg" data-lightbox="market-4"> <img data-src="./assets/SocialMedia/cropped/h.jpg" alt=""></a>
+                            </div>
+                            <div class="category">
+                                <p class="category-text">Marketing</p>
+                            </div>
+                            <div class="work-content">
+                                <p class="work-content-head">Festive Post!</p>
+                                <p class="work-content-desc">A Ganesha designed using the company's logo</p>
+                            </div>
+                        </div>
+                        <div class="card-outer">
+                            <div class="divImg">
+                                <a href="./assets/SocialMedia/e.jpg" data-lightbox="market-5"> <img data-src="./assets/SocialMedia/cropped/e.jpg" alt=""></a>
+                            </div>
+                            <div class="category">
+                                <p class="category-text">Marketing</p>
+                            </div>
+                            <div class="work-content">
+                                <p class="work-content-head">Ramsayyy!</p>
+                                <p class="work-content-desc">A design which instantly connects with the consumers</p>
+                            </div>
+                        </div>
+                        <div class="card-outer">
+                            <div class="divImg">
+                                <a href="./assets/SocialMedia/g.jpg" data-lightbox="market-6"> <img data-src="./assets/SocialMedia/cropped/g.jpg" alt=""></a>
+                            </div>
+                            <div class="category">
+                                <p class="category-text">Marketing</p>
+                            </div>
+                            <div class="work-content">
+                                <p class="work-content-head">Food meets Music</p>
+                                <p class="work-content-desc">Good Design means Good Business</p>
+                            </div>
+                        </div>
+                        <div class="card-outer">
+                            <div class="divImg">
+                                <a href="./assets/SocialMedia/f.jpg" data-lightbox="market-7"> <img data-src="./assets/SocialMedia/cropped/f.jpg" alt=""></a>
+                            </div>
+                            <div class="category">
+                                <p class="category-text">Marketing</p>
+                            </div>
+                            <div class="work-content">
+                                <p class="work-content-head">Web Project</p>
+                                <p class="work-content-desc">A web 3.0 project implemented using HTML css and js</p>
+                            </div>
+                        </div>
+                        <div class="card-outer">
+                            <div class="divImg">
+                                <a href="./assets/SocialMedia/d.jpg" data-lightbox="market-8"> <img data-src="./assets/SocialMedia/cropped/d.jpg" alt=""></a>
+                            </div>
+                            <div class="category">
+                                <p class="category-text">Marketing</p>
+                            </div>
+                            <div class="work-content">
+                                <p class="work-content-head">Web Project</p>
+                                <p class="work-content-desc">A web 3.0 project implemented using HTML css and js</p>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills -->
+    <section id="skills">
+        <div class="wrapper">
+            <div class="skills-content">
+                <div class="skills-head-div">
+                    <p class="skills-head">Skills <span>&</span> Timeline</p>
+                    <hr class="skills-head-hr">
+                </div>
+                <div class="skills-main">
+                    <div class="skills-logos">
+                        <img class="skills-img" data-src="./assets/html.png" alt="">
+                        <img class="skills-img" data-src="./assets/cpp.png" alt="">
+                        <img class="skills-img" data-src="./assets/sass.png" alt="">
+                        <img class="skills-img" data-src="./assets/javascript.png" alt="">
+                        <img class="skills-img" data-src="./assets/react.png" alt="">
+                        <img class="skills-img" data-src="./assets/python.png" alt="">
+                        <img class="skills-img" data-src="./assets/api.png" alt="">
+                        <img class="skills-img" data-src="./assets/git.png" alt="">
+                        <img class="skills-img" data-src="./assets/django.png" alt="">
+                        <img class="skills-img" data-src="./assets/figma.png" alt="">
+                        <img class="skills-img" data-src="./assets/xd.png" alt="">
+                        <img class="skills-img" data-src="./assets/ps.png" alt="">
+                        <img class="skills-img" data-src="./assets/ai.png" alt="">
+                    </div>
+                    <div class="skills-desc">
+                        <div class="skills-year">
+                            <p class="skills-current-year">2022</p>
+                            <div class="skills-year-desc">
+                                <p>Advanced CSS and SASS</p>
+                                <p class="text-muted">Youtube</p>
+                            </div>
+                        </div>
+
+                        <div class="skills-year">
+                            <p class="skills-current-year">2021</p>
+                            <div class="skills-year-desc">
+                                <p>React Basics</p>
+                                <p class="text-muted">Udemy</p>
+                                <br>
+                                <p>Grahic Design Masterclass</p>
+                                <p class="text-muted">Udemy</p>
+                            </div>
+                        </div>
+                        <div class="skills-year">
+                            <p class="skills-current-year">2020</p>
+                            <div class="skills-year-desc">
+                                <p>Modern JavaScript</p>
+                                <p class="text-muted">Udemy</p>
+                                <br>
+                                <p>Bootstrap 4 with Projects</p>
+                                <p class="text-muted">Udemy</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact">
+        <div class="wrapper">
+            <div class="contact-content">
+                <div class="contact-head-div">
+
+                    <div class="contact-head">
+                        <p>Let's Get in Touch</p>
+                        <hr class="contact-head-hr">
+                    </div>
+
+                    <div class="contact-top">
+
+                        <div class="contact-phone">
+                            <i class="fa-solid fa-phone"></i>
+                            <p class="phone-head">Phone</p>
+                            <p class="phone-content text-muted">+91 7373219696</p>
+                        </div>
+                        <div class="contact-email">
+                            <i class="fa-solid fa-envelope"></i>
+                            <p class="email-head">Email</p>
+                            <a data-hover class="text-muted email-content" href="mailto:kishore231512@gmail.com">kishore231512@gmail.com</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="contact-main">
+
+                    <div class="contact-logo">
+
+                        <!--  -->
+                        <svg viewBox="0 0 101.17 129.44" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <g clip-path="url(#clip0_19_2)">
+                            
+                            <path class="rect" stroke="#f4ae95" d="M15.89 13.7H1.89C1.65244 13.6865 1.41458 13.7206 1.19033 13.8001C0.966078 13.8797 0.759937 14.0031 0.583959 14.1633C0.407981 14.3234 0.265699 14.5171 0.165431 14.7328C0.0651639 14.9486 0.00892394 15.1822 0 15.42L0 114.36C0.00901473 114.595 0.0642974 114.826 0.162686 115.04C0.261074 115.254 0.400637 115.446 0.573391 115.606C0.746145 115.765 0.948701 115.89 1.16947 115.971C1.39024 116.052 1.62489 116.089 1.86 116.08H15.86C16.0951 116.089 16.3298 116.052 16.5505 115.971C16.7713 115.89 16.9739 115.765 17.1466 115.606C17.3194 115.446 17.4589 115.254 17.5573 115.04C17.6557 114.826 17.711 114.595 17.72 114.36V15.42C17.7018 14.9505 17.4996 14.507 17.1573 14.1852C16.8149 13.8634 16.3597 13.6892 15.89 13.7V13.7Z" />
+                            <path class="kLogo" stroke="#f4ae95" d="M24.81 46.49V1.42001C24.8126 1.04421 24.9631 0.684544 25.2288 0.418808C25.4945 0.153072 25.8542 0.0026241 26.23 5.19697e-06H99.75C99.9352 -0.00131269 100.119 0.0338545 100.29 0.103499C100.462 0.173143 100.618 0.2759 100.75 0.405903C100.882 0.535906 100.987 0.690609 101.059 0.861177C101.131 1.03175 101.169 1.21484 101.17 1.40001V128C101.167 128.376 101.017 128.735 100.751 129.001C100.485 129.267 100.126 129.417 99.75 129.42H26.23C25.855 129.415 25.4968 129.264 25.2316 128.998C24.9664 128.733 24.8152 128.375 24.81 128V81.82C24.8067 81.5157 24.9012 81.2183 25.0797 80.9718C25.2582 80.7253 25.5111 80.5427 25.8013 80.4508C26.0915 80.3589 26.4034 80.3627 26.6913 80.4616C26.9791 80.5605 27.2276 80.7492 27.4 81L51 115.11C51.1295 115.298 51.3028 115.452 51.5048 115.558C51.7069 115.664 51.9317 115.72 52.16 115.72H71.16C71.3469 115.72 71.5319 115.683 71.7042 115.611C71.8766 115.539 72.033 115.433 72.1642 115.3C72.2953 115.167 72.3988 115.009 72.4685 114.836C72.5381 114.662 72.5726 114.477 72.57 114.29C72.5672 114.005 72.4803 113.726 72.32 113.49L38.48 65.24C38.3052 65.0004 38.2111 64.7115 38.2111 64.415C38.2111 64.1185 38.3052 63.8296 38.48 63.59L72.26 17.13C72.3719 16.9783 72.4524 16.8058 72.497 16.6225C72.5415 16.4393 72.5491 16.2491 72.5193 16.0629C72.4895 15.8768 72.4229 15.6984 72.3235 15.5382C72.224 15.378 72.0936 15.2393 71.94 15.13C71.7002 14.9519 71.4087 14.8571 71.11 14.86H52.88C52.6626 14.86 52.4483 14.9106 52.2539 15.0078C52.0595 15.105 51.8904 15.2461 51.76 15.42L27.36 47.35C27.247 47.4998 27.1054 47.6258 26.9434 47.7205C26.7814 47.8153 26.6023 47.877 26.4163 47.9021C26.2303 47.9272 26.0412 47.9152 25.8599 47.8668C25.6786 47.8184 25.5087 47.7345 25.36 47.62C25.1889 47.4855 25.0505 47.3139 24.9552 47.1182C24.8599 46.9225 24.8103 46.7077 24.81 46.49V46.49Z" />
+                            </g>
+                            <defs>
+                            <clipPath id="clip0_19_2">
+                            <rect width="101.17" height="129.42" fill="white"/>
+                            </clipPath>
+                            </defs>
+                            </svg>
+
+                    </div>
+
+                    <div class="contact-form">
+                        <div class="field-div">
+                            <label for="name">Name</label>
+                            <input type="text" name="name" id="name">
+                        </div>
+                        <div class="field-div">
+                            <label for="email">Email</label>
+                            <input type="email" name="email" id="email">
+                        </div>
+                        <div class="field-div-textArea">
+                            <label for="message">Message</label>
+                            <textarea name="message" id="message" cols="" rows="5"></textarea>
+                        </div>
+                        <input data-hover class="btn-submit" type="button" value="Submit">
+                    </div>
+
+                </div>
+
+                <div class="contact-bottom">
+                    <div class="contact-social-media">
+
+                        <ul>
+                            <li>
+                                <a data-hover href="https://www.linkedin.com/in/kishore-yogeswaran-7946291a6/" target="_blank"><i class="fa-brands fa-linkedin"></i></a>
+                            </li>
+                            <li>
+                                <a data-hover href="https://github.com/Kishore121523" target="_blank"><i class="fa-brands fa-github"></i></a>
+                            </li>
+                            <li>
+                                <a data-hover href="https://www.instagram.com/_kishoredesigns_/" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="copyright">
+                        <p>&copy;<span id="year"></span> KISHORE</p>
+                        <p>ALL RIGHTS RESERVED</p>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>With Love, Kishore</p>
+    </footer>
+
+    <!-- modal -->
+    <div class="modal" id="overlay">
+        <div class="modalContainer">
+            <i class="fa-solid fa-xmark close-about"></i>
+            <label class="modalLabelText" for="tagline">E-Mail Id</label>
+            <input id="tagline" type="text">
+            <label class="modalLabelText" for="note">Message</label>
+            <textarea name="note" id="note" cols="10" rows="5"></textarea>
+            <button class="modalBtn">Send Mail</button>
+        </div>
+    </div>
+
+    <div data-cursor1 class="cursor1-2" id="cursor-d-none"></div>
+    <div data-cursor2 class="cursor2-2" id="cursor-d-none"></div>
+
+</body>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="./script/anime.min.js"></script>
+<script src="./script/lightbox-plus-jquery.js"></script>
+<script src="./script/index.js"></script>
+
+<script>
+    $("#year").text(new Date().getFullYear());
+</script>
+<script>
+    lightbox.option({
+        'resizeDuration': 800,
+        'positionFromTop': 80
+    })
+</script>
+
+</html>
