@@ -1,6 +1,8 @@
-@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap");
+// background: rgba($color: $level2Dark, $alpha: 0.5);
+// backdrop-filter: blur(5px);
 // variables
-$fontBase: 'DM Sans',
+$fontBase: "DM Sans",
 sans-serif;
 $backgroundColor: #121212;
 $level1Dark: #1e1e1e;
@@ -14,8 +16,8 @@ $level8Dark: #343434;
 $level9Dark: #383838;
 $purple: #bb86fc;
 $peach: #f4ae95;
-$cyan:#03dac5;
-$error:#cf6679;
+$cyan: #03dac5;
+$error: #cf6679;
 $halfWhite: #d6d4d4;
 * {
     box-sizing: border-box;
@@ -23,7 +25,6 @@ $halfWhite: #d6d4d4;
     margin: 0;
     font-family: $fontBase;
     line-height: 1.4;
-    cursor: none;
     text-decoration: none;
     list-style-type: none;
     input:focus,
@@ -33,12 +34,150 @@ $halfWhite: #d6d4d4;
     }
 }
 
+.app-wrapper {
+    opacity: 0;
+}
+
+.pre-loader {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: $backgroundColor;
+    z-index: 10000;
+}
+
+.loader {
+    box-shadow: -2px -2px 4px rgba(46, 45, 45, 0.4), 4px 4px 4px rgba(0, 0, 0, 0.4), 0 0 0 rgba(255, 255, 255, 0.2) inset, 0 0 0 rgba(0, 0, 0, 0.4) inset;
+    background: $backgroundColor;
+    --duration: 3s;
+    width: 44px;
+    height: 44px;
+    position: relative;
+    padding: 10px;
+    svg {
+        display: block;
+        width: 100%;
+        height: 100%;
+        rect,
+        polygon,
+        circle {
+            fill: none;
+            stroke: $level7Dark;
+            stroke-width: 10px;
+            stroke-linejoin: round;
+            stroke-linecap: round;
+        }
+        polygon {
+            stroke-dasharray: 145 (221 - 145) 145 (221 - 145);
+            stroke-dashoffset: 0;
+            animation: pathTriangle var(--duration) cubic-bezier(0.785, 0.135, 0.15, 0.86) infinite;
+        }
+        rect {
+            stroke-dasharray: (256 / 4 * 3) (256 / 4) (256 / 4 * 3) (256 / 4);
+            stroke-dashoffset: 0;
+            animation: pathRect 3s cubic-bezier(0.785, 0.135, 0.15, 0.86) infinite;
+        }
+        circle {
+            stroke-dasharray: (200 / 4 * 3) (200 / 4) (200 / 4 * 3) (200 / 4);
+            stroke-dashoffset: 75;
+            animation: pathCircle var(--duration) cubic-bezier(0.785, 0.135, 0.15, 0.86) infinite;
+        }
+    }
+    &.triangle {
+        width: 48px;
+        &:before {
+            left: 21px;
+            transform: translate(-10px, -18px);
+            animation: dotTriangle var(--duration) cubic-bezier(0.785, 0.135, 0.15, 0.86) infinite;
+        }
+    }
+}
+
+@keyframes pathTriangle {
+    33% {
+        stroke-dashoffset: 74;
+    }
+    66% {
+        stroke-dashoffset: 147;
+    }
+    100% {
+        stroke-dashoffset: 221;
+    }
+}
+
+@keyframes dotTriangle {
+    33% {
+        transform: translate(0, 0);
+    }
+    66% {
+        transform: translate(10px, -18px);
+    }
+    100% {
+        transform: translate(-10px, -18px);
+    }
+}
+
+@keyframes pathRect {
+    25% {
+        stroke-dashoffset: 64;
+    }
+    50% {
+        stroke-dashoffset: 128;
+    }
+    75% {
+        stroke-dashoffset: 192;
+    }
+    100% {
+        stroke-dashoffset: 256;
+    }
+}
+
+@keyframes dotRect {
+    25% {
+        transform: translate(0, 0);
+    }
+    50% {
+        transform: translate(18px, -18px);
+    }
+    75% {
+        transform: translate(0, -36px);
+    }
+    100% {
+        transform: translate(-10px, -10px);
+    }
+}
+
+@keyframes pathCircle {
+    25% {
+        stroke-dashoffset: 125;
+    }
+    50% {
+        stroke-dashoffset: 175;
+    }
+    75% {
+        stroke-dashoffset: 225;
+    }
+    100% {
+        stroke-dashoffset: 275;
+    }
+}
+
+.loader {
+    display: inline-block;
+    margin: 0 16px;
+}
+
 .app__navigation {
-    display: none
+    display: none;
 }
 
 .active {
-    color: $peach;
+    color: $peach !important;
 }
 
 .activeDot {
@@ -49,8 +188,8 @@ $halfWhite: #d6d4d4;
 body {
     width: 100%;
     height: auto;
-    overflow-x: hidden;
     background: $backgroundColor;
+    overflow-x: hidden !important;
 }
 
 a {
@@ -74,9 +213,8 @@ header {
     width: 100vw;
     justify-content: space-between;
     align-items: center;
-    border-bottom: 2px solid $peach;
-    background: rgba($color: $level2Dark, $alpha: 0.5);
-    backdrop-filter: blur(5px);
+    box-shadow: -2px -2px 4px rgba(46, 45, 45, 0.4), 4px 4px 4px rgba(0, 0, 0, 0.4), 0 0 0 rgba(255, 255, 255, 0.2) inset, 0 0 0 rgba(0, 0, 0, 0.4) inset;
+    background: $backgroundColor;
     padding: 0.4rem 2rem;
     z-index: 99999;
     a svg {
@@ -85,12 +223,11 @@ header {
     }
     svg {
         width: 1.8em;
-        margin-top: -.2em;
+        margin-top: -0.2em;
     }
 }
 
 nav {
-    //sideBar with bg red
     position: fixed;
     right: 0;
     top: 0;
@@ -100,17 +237,29 @@ nav {
     height: 100vh;
     text-transform: uppercase;
     transform: translateX(100%);
-    transition: transform .5s ease-in-out;
+    transition: transform 0.5s ease-in-out;
     z-index: 99999;
-    ul {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    .navBarLinks {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        justify-self: flex-start;
+        flex: 1.5;
+        gap: 1.5rem;
+        flex-direction: column;
+        margin-top: 2rem;
         list-style-type: none;
         padding: 0;
-        margin-top: 7rem;
         li {
             display: flex;
             justify-content: space-between;
             align-items: center;
             flex-direction: column;
+            text-align: center;
             div {
                 position: absolute;
                 width: 5px;
@@ -126,11 +275,10 @@ nav {
             a {
                 font-size: 1rem;
                 color: $halfWhite;
-                padding: .75em 2em;
-                margin-bottom: 0.8rem;
+                padding: 0.75em 2em;
                 width: 100%;
                 &:hover {
-                    background: $level5Dark;
+                    background: none;
                     color: $peach;
                 }
             }
@@ -143,16 +291,17 @@ nav {
         }
     }
     .socialMedia {
+        flex: 1;
         display: flex;
         justify-content: center;
-        align-items: center;
-        margin: 20%;
+        align-items: flex-start;
+        margin: 0 2%;
+        margin-top: 7rem;
         li {
             a {
                 font-size: 1rem;
                 color: $halfWhite;
-                padding: 0em 1.5em;
-                margin-bottom: 0.8rem;
+                padding: 0em 1em;
                 width: 100%;
                 &:hover {
                     background: none;
@@ -162,9 +311,9 @@ nav {
         }
     }
     .close {
-        float: right;
-        margin: 2em 1em;
-        margin-top: 3em;
+        flex: 1;
+        margin-right: 1.5rem;
+        align-self: flex-end;
         width: 2em;
         transition: all 3000ms ease;
         path {
@@ -200,17 +349,16 @@ nav {
     background-repeat: no-repeat;
     background-size: cover;
     object-fit: cover;
-    min-height: 100vh;
+    min-height: 80vh;
     width: 100%;
     color: $halfWhite;
-    animation: clip 2s forwards;
     .nameDiv {
-        color: $halfWhite;
+        min-height: 100vh;
         display: flex;
         flex-direction: column;
         justify-content: flex-end;
         align-items: flex-start;
-        min-height: 100vh;
+        color: $halfWhite;
         padding-bottom: 40%;
         padding-left: 2.2rem;
         gap: 1rem;
@@ -219,43 +367,42 @@ nav {
             justify-content: center;
             align-items: center;
             flex-direction: row;
-            background: rgba($color: $level2Dark, $alpha: 0.6);
-            backdrop-filter: blur(5px);
+            box-shadow: -2px -2px 4px rgba(46, 45, 45, 0.4), 4px 4px 4px rgba(0, 0, 0, 0.4), 0 0 0 rgba(255, 255, 255, 0.2) inset, 0 0 0 rgba(0, 0, 0, 0.4) inset;
+            background: $backgroundColor;
             padding: 1rem 1.2rem;
             padding-left: 0.9rem;
             border-radius: 10px;
             gap: 0.8rem;
-            box-shadow: 0px 1px 20px 2px rgba(53, 52, 52, 0.2);
             animation: slideIn 2.5s forwards;
-            .waveEmoji {
-                font-size: 2rem;
+            .waveEmoji img {
+                width: 2.5rem;
+                transform: scaleX(-1);
                 animation: wave 2s infinite;
             }
             .content {
                 display: flex;
                 flex-direction: column;
                 p {
-                    font-size: .75rem;
+                    font-size: 0.75rem;
                 }
                 .name {
+                    color: $peach;
                     font-size: 1.5rem;
                     font-weight: bold;
                 }
             }
         }
         .roleDiv1 {
-            // position: absolute;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            background: rgba($color: $level2Dark, $alpha: 0.5);
-            backdrop-filter: blur(5px);
+            box-shadow: -2px -2px 4px rgba(46, 45, 45, 0.4), 4px 4px 4px rgba(0, 0, 0, 0.4), 0 0 0 rgba(255, 255, 255, 0.2) inset, 0 0 0 rgba(0, 0, 0, 0.4) inset;
+            background: $backgroundColor;
             padding: 0.8rem 1.8rem;
             border-radius: 10px;
             text-transform: uppercase;
             gap: 1px;
-            box-shadow: 0px 1px 20px 2px rgba(53, 52, 52, 0.2);
             z-index: 1;
             animation: slideIn 2s forwards;
             .role {
@@ -266,10 +413,9 @@ nav {
 }
 
 #about {
-    min-height: auto;
+    min-height: fit-content;
     width: 100%;
     .wrapper {
-        position: relative;
         width: 100%;
         .contentAbout {
             display: flex;
@@ -279,6 +425,7 @@ nav {
             height: 100%;
             margin: auto 5rem;
             padding-top: 6rem;
+            margin-bottom: 6rem;
             z-index: 1;
             opacity: 0;
             color: $halfWhite;
@@ -324,32 +471,39 @@ nav {
             gap: 2rem;
             margin-top: 3rem;
             button {
-                color: $peach;
-                background: transparent;
-                border: 2px solid $peach;
                 border-radius: 50px;
+                border-color: transparent;
                 padding: 10px 2rem;
                 font-size: 1rem;
                 transition: all 300ms ease;
                 text-transform: uppercase;
+                color: $peach;
+                background: $backgroundColor;
+                box-shadow: -2px -2px 4px rgba(46, 45, 45, 0.4), 4px 4px 4px rgba(0, 0, 0, 0.4), 0 0 0 rgba(255, 255, 255, 0.2) inset, 0 0 0 rgba(0, 0, 0, 0.4) inset;
                 &:hover {
-                    border: 2px solid $halfWhite;
                     color: $halfWhite;
-                    background: rgba($color: $level4Dark, $alpha: 0.5);
+                    cursor: pointer;
                 }
             }
             ul {
                 display: flex;
                 justify-content: center;
                 align-items: center;
+                gap: 2rem;
                 padding-top: 2px;
                 li {
+                    background: $backgroundColor;
+                    box-shadow: -2px -2px 4px rgba(46, 45, 45, 0.4), 4px 4px 4px rgba(0, 0, 0, 0.4), 0 0 0 rgba(255, 255, 255, 0.2) inset, 0 0 0 rgba(0, 0, 0, 0.4) inset;
+                    border-radius: 5px;
                     a {
                         color: $halfWhite;
-                        padding: 0 2.8rem;
                         transition: color 200ms ease;
                         &:hover {
                             color: $peach;
+                        }
+                        i {
+                            font-size: 1.1rem;
+                            padding: 0.3rem 2rem;
                         }
                     }
                 }
@@ -360,7 +514,8 @@ nav {
                 margin-top: 5px;
                 border-right: 2px solid $peach;
                 border-radius: 5px;
-                opacity: 1;
+                opacity: 0;
+                display: none;
                 transition: none;
             }
         }
@@ -377,6 +532,19 @@ nav {
         }
         rect {
             fill: rgba($color: $level3Dark, $alpha: 0.2);
+        }
+    }
+    .cvLink {
+        background: $backgroundColor;
+        box-shadow: -2px -2px 4px rgba(46, 45, 45, 0.4), 4px 4px 4px rgba(0, 0, 0, 0.4), 0 0 0 rgba(255, 255, 255, 0.2) inset, 0 0 0 rgba(0, 0, 0, 0.4) inset;
+        border-radius: 5px;
+        color: $peach;
+        padding: 0.4rem 2rem;
+        font-size: 1rem;
+        margin-top: 7px;
+        z-index: 90;
+        &:hover {
+            color: $halfWhite;
         }
     }
     .section {
@@ -396,7 +564,7 @@ nav {
     .wrapper {
         width: 100%;
         height: auto;
-        .work-content {
+        .work-content-main {
             padding-top: 6rem;
             height: auto;
             margin: auto 4rem;
@@ -427,15 +595,19 @@ nav {
                     display: flex;
                     justify-content: center;
                     align-items: center;
-                    background: rgba($color: $level3Dark, $alpha: 0.6);
-                    backdrop-filter: blur(5px);
+                    box-shadow: -2px -2px 4px rgba(46, 45, 45, 0.4), 4px 4px 4px rgba(0, 0, 0, 0.4), 0 0 0 rgba(255, 255, 255, 0.2) inset, 0 0 0 rgba(0, 0, 0, 0.4) inset;
+                    background: $backgroundColor;
                     padding: 0.5rem 1rem;
                     border-radius: 10px;
                     a {
                         text-align: center;
                         font-size: 0.8rem;
                         color: $halfWhite;
+                        padding: 0;
                         transition: all 300ms ease;
+                        &:hover {
+                            color: $peach;
+                        }
                     }
                 }
             }
@@ -455,15 +627,12 @@ nav {
                     flex-direction: column;
                     width: 100%;
                     height: auto;
-                    background: rgba($color: $level3Dark, $alpha: 0.6);
-                    backdrop-filter: blur(5px);
+                    box-shadow: -2px -2px 4px rgba(46, 45, 45, 0.4), 4px 4px 4px rgba(0, 0, 0, 0.4), 0 0 0 rgba(255, 255, 255, 0.2) inset, 0 0 0 rgba(0, 0, 0, 0.4) inset;
+                    background: $backgroundColor;
                     border-radius: 8px;
                     padding: 0.5rem;
                     margin: 1.5rem;
                     transition: all 300ms ease;
-                    &:hover {
-                        box-shadow: 0 0 25px rgba($color: #252525, $alpha: 0.4);
-                    }
                     .divImg {
                         position: relative;
                         width: 100%;
@@ -471,14 +640,14 @@ nav {
                             opacity: 1;
                             width: 100%;
                             height: auto;
-                            transition: .5s ease;
+                            transition: 0.5s ease;
                             backface-visibility: hidden;
                             padding: 0.5rem;
                             border-radius: 1.2rem;
                             object-fit: cover;
                         }
                         .middle {
-                            transition: .5s ease;
+                            transition: 0.5s ease;
                             opacity: 0;
                             position: absolute;
                             top: 50%;
@@ -503,7 +672,8 @@ nav {
                                 color: $halfWhite;
                                 z-index: 100;
                                 transition: all 300ms ease;
-                                background: rgba($color: $level3Dark, $alpha: 0.8);
+                                box-shadow: -2px -2px 4px rgba(46, 45, 45, 0.4), 4px 4px 4px rgba(0, 0, 0, 0.4), 0 0 0 rgba(255, 255, 255, 0.2) inset, 0 0 0 rgba(0, 0, 0, 0.4) inset;
+                                background: $backgroundColor;
                                 padding: 0.9rem;
                                 border-radius: 50%;
                                 &:hover {
@@ -521,14 +691,14 @@ nav {
                     }
                     .category {
                         position: relative;
-                        background: rgba($color: $level3Dark, $alpha: 0.6);
-                        backdrop-filter: blur(5px);
+                        box-shadow: -2px -2px 4px rgba(46, 45, 45, 0.4), 4px 4px 4px rgba(0, 0, 0, 0.4), 0 0 0 rgba(255, 255, 255, 0.2) inset, 0 0 0 rgba(0, 0, 0, 0.4) inset;
+                        background: $backgroundColor;
                         margin-top: -2.22rem;
                         border-radius: 6px 6px 0 0;
                         padding: 0.3rem 1.7rem;
                         padding-bottom: 0.1rem;
                         font-size: 0.7rem;
-                        color: $halfWhite;
+                        color: $peach;
                     }
                     .work-content {
                         display: flex;
@@ -606,8 +776,8 @@ nav {
                     width: 100%;
                     .skills-img {
                         width: 3rem;
-                        background: rgba($color: $level3Dark, $alpha: 0.6);
-                        backdrop-filter: blur(5px);
+                        box-shadow: -2px -2px 4px rgba(46, 45, 45, 0.4), 4px 4px 4px rgba(0, 0, 0, 0.4), 0 0 0 rgba(255, 255, 255, 0.2) inset, 0 0 0 rgba(0, 0, 0, 0.4) inset;
+                        background: $backgroundColor;
                         border-radius: 50%;
                         padding: 8px;
                         transition: box-shadow 300ms ease-in-out;
@@ -691,6 +861,7 @@ nav {
                     justify-content: center;
                     align-items: center;
                     gap: 2rem;
+                    margin-left: 10px;
                     .contact-phone {
                         display: flex;
                         flex-direction: column;
@@ -699,8 +870,8 @@ nav {
                         gap: 0.3rem;
                         i {
                             color: $peach;
-                            background: rgba($color: $level3Dark, $alpha: 0.6);
-                            backdrop-filter: blur(5px);
+                            box-shadow: -2px -2px 4px rgba(46, 45, 45, 0.4), 4px 4px 4px rgba(0, 0, 0, 0.4), 0 0 0 rgba(255, 255, 255, 0.2) inset, 0 0 0 rgba(0, 0, 0, 0.4) inset;
+                            background: $backgroundColor;
                             border-radius: 50%;
                             padding: 1.2rem;
                             font-size: 0.7rem;
@@ -722,8 +893,8 @@ nav {
                         margin-top: 1px;
                         i {
                             color: $peach;
-                            background: rgba($color: $level3Dark, $alpha: 0.6);
-                            backdrop-filter: blur(5px);
+                            box-shadow: -2px -2px 4px rgba(46, 45, 45, 0.4), 4px 4px 4px rgba(0, 0, 0, 0.4), 0 0 0 rgba(255, 255, 255, 0.2) inset, 0 0 0 rgba(0, 0, 0, 0.4) inset;
+                            background: $backgroundColor;
                             border-radius: 50%;
                             padding: 1.2rem;
                             font-size: 0.7rem;
@@ -762,8 +933,8 @@ nav {
                     width: 100%;
                     border-radius: 10px;
                     padding: 2rem;
-                    background: rgba($color: $level3Dark, $alpha: 0.6);
-                    backdrop-filter: blur(5px);
+                    box-shadow: -2px -2px 4px rgba(46, 45, 45, 0.4), 4px 4px 4px rgba(0, 0, 0, 0.4), 0 0 0 rgba(255, 255, 255, 0.2) inset, 0 0 0 rgba(0, 0, 0, 0.4) inset;
+                    background: $backgroundColor;
                     gap: 1rem;
                     .field-div {
                         display: flex;
@@ -778,8 +949,8 @@ nav {
                         }
                         input {
                             width: 100%;
-                            background: rgba($color: $level3Dark, $alpha: 0.6);
-                            backdrop-filter: blur(5px);
+                            box-shadow: -2px -2px 4px rgba(46, 45, 45, 0.4), 4px 4px 4px rgba(0, 0, 0, 0.4), 0 0 0 rgba(255, 255, 255, 0.2) inset, 0 0 0 rgba(0, 0, 0, 0.4) inset;
+                            background: $backgroundColor;
                             border-radius: 4px;
                             border: 0;
                             border-bottom: 2px solid $peach;
@@ -804,8 +975,8 @@ nav {
                         }
                         textarea {
                             width: 100%;
-                            background: rgba($color: $level3Dark, $alpha: 0.6);
-                            backdrop-filter: blur(5px);
+                            box-shadow: -2px -2px 4px rgba(46, 45, 45, 0.4), 4px 4px 4px rgba(0, 0, 0, 0.4), 0 0 0 rgba(255, 255, 255, 0.2) inset, 0 0 0 rgba(0, 0, 0, 0.4) inset;
+                            background: $backgroundColor;
                             border-radius: 4px;
                             border: 0;
                             border-bottom: 2px solid $peach;
@@ -819,8 +990,10 @@ nav {
                     }
                     .btn-submit {
                         padding: 5px 10px;
-                        background: $halfWhite;
-                        color: $level1Dark;
+                        padding-top: 7px;
+                        box-shadow: -2px -2px 4px rgba(46, 45, 45, 0.4), 4px 4px 4px rgba(0, 0, 0, 0.4), 0 0 0 rgba(255, 255, 255, 0.2) inset, 0 0 0 rgba(0, 0, 0, 0.4) inset;
+                        background: $backgroundColor;
+                        color: $halfWhite;
                         border: 0;
                         text-align: center;
                         align-self: center;
@@ -830,8 +1003,9 @@ nav {
                         border-radius: 5px;
                         transition: all 300ms ease;
                         &:hover {
-                            color: $level1Dark;
-                            background: $peach
+                            background: transparent;
+                            color: $peach;
+                            cursor: pointer;
                         }
                     }
                 }
@@ -839,7 +1013,7 @@ nav {
                     svg {
                         position: relative;
                         right: 0;
-                        height: 40vh;
+                        height: 25vh;
                         align-self: center;
                         z-index: 0;
                         .kLogo {
@@ -863,12 +1037,18 @@ nav {
                     align-items: center;
                     gap: 1.5rem;
                     li {
+                        box-shadow: -2px -2px 4px rgba(46, 45, 45, 0.4), 4px 4px 4px rgba(0, 0, 0, 0.4), 0 0 0 rgba(255, 255, 255, 0.2) inset, 0 0 0 rgba(0, 0, 0, 0.4) inset;
+                        background: $backgroundColor;
+                        border-radius: 5px;
                         a {
                             color: $halfWhite;
-                            font-size: 1rem;
-                            transition: all 300ms ease;
+                            transition: color 200ms ease;
                             &:hover {
                                 color: $peach;
+                            }
+                            i {
+                                font-size: 0.8rem;
+                                padding: 0.1rem 0.5rem;
                             }
                         }
                     }
@@ -890,8 +1070,8 @@ nav {
 }
 
 footer {
-    background: rgba($color: $level3Dark, $alpha: 0.6);
-    backdrop-filter: blur(5px);
+    box-shadow: -2px -2px 4px rgba(46, 45, 45, 0.4), 4px 4px 4px rgba(0, 0, 0, 0.4), 0 0 0 rgba(255, 255, 255, 0.2) inset, 0 0 0 rgba(0, 0, 0, 0.4) inset;
+    background: $backgroundColor;
     padding: 0.7rem;
     display: flex;
     justify-content: center;
@@ -908,7 +1088,8 @@ footer {
 
 /* Modal */
 
-.modal {
+.modal,
+.modalFormSuccess {
     position: absolute;
     display: flex;
     flex-direction: column;
@@ -925,19 +1106,25 @@ footer {
     textarea {
         caret-color: $halfWhite;
         color: $peach;
-        background: rgba($color: $backgroundColor, $alpha: 0.9);
-        backdrop-filter: blur(2px);
+        box-shadow: -2px -2px 4px rgba(46, 45, 45, 0.4), 4px 4px 4px rgba(0, 0, 0, 0.4), 0 0 0 rgba(255, 255, 255, 0.2) inset, 0 0 0 rgba(0, 0, 0, 0.4) inset;
+        background: $backgroundColor;
         border: 0px;
         padding: 5px;
     }
 }
 
-.close-about {
+.modalFormSuccess {
+    padding: 2rem;
+}
+
+.modal .close-about {
     align-self: flex-end;
     margin-bottom: 0.7rem;
     transition: all 300ms ease;
+    color: $halfWhite;
+    cursor: pointer;
     &:hover {
-        color: $halfWhite;
+        color: $peach;
     }
 }
 
@@ -945,15 +1132,43 @@ footer {
     opacity: 0;
     transform: translateX(200%);
     position: absolute;
-    top: 110vh;
+    top: 120vh;
     margin: 5% 10%;
     width: 80%;
-    height: 78%;
+    padding: 2rem;
+    height: fit-content;
     border-radius: 10px;
-    background: rgba($color: $level3Dark, $alpha: 0.6);
-    backdrop-filter: blur(8px);
+    box-shadow: -2px -2px 4px rgba(46, 45, 45, 0.4), 4px 4px 4px rgba(0, 0, 0, 0.4), 0 0 0 rgba(255, 255, 255, 0.2) inset, 0 0 0 rgba(0, 0, 0, 0.4) inset;
+    background: $backgroundColor;
     transition: all 300ms ease;
     z-index: 10;
+}
+
+#overlaySuccess {
+    opacity: 0;
+    transform: translateX(200%);
+    position: fixed;
+    top: 45%;
+    margin: 0 0 0% 20%;
+    width: 15rem;
+    height: fit-content;
+    border-radius: 10px;
+    box-shadow: -2px -2px 4px rgba(46, 45, 45, 0.4), 4px 4px 4px rgba(0, 0, 0, 0.4), 0 0 0 rgba(255, 255, 255, 0.2) inset, 0 0 0 rgba(0, 0, 0, 0.4) inset;
+    background: $backgroundColor;
+    transition: all 300ms ease;
+    z-index: 10;
+}
+
+.errorMsg {
+    border-radius: 10px;
+    padding: 2rem;
+    border: 2px solid red;
+}
+
+.successMsg {
+    border-radius: 10px;
+    padding: 2rem;
+    border: 2px solid green;
 }
 
 #tagline {
@@ -979,37 +1194,40 @@ footer {
     align-self: center;
 }
 
-.modalContainer {
+.modalContainer,
+.modalContainerContact {
     justify-content: center;
     align-items: center;
     display: flex;
     flex-direction: column;
     gap: 1rem;
-    height: 100%;
+    height: fit-content;
     z-index: 4;
     label {
-        color: $peach
+        color: $peach;
     }
 }
 
 .modalBtn {
     display: block;
-    width: 30%;
+    width: 50%;
     text-align: center;
     margin: 0 auto;
-    font-size: 0.8rem;
+    font-size: 0.9rem;
     padding: 7px;
     border-radius: 5px;
     border: none;
-    background-color: $halfWhite;
-    color: $level1Dark;
+    box-shadow: -2px -2px 4px rgba(46, 45, 45, 0.4), 4px 4px 4px rgba(0, 0, 0, 0.4), 0 0 0 rgba(255, 255, 255, 0.2) inset, 0 0 0 rgba(0, 0, 0, 0.4) inset;
+    background: $backgroundColor;
+    color: $halfWhite;
     margin-top: 5px;
     transition: all 300ms ease;
 }
 
 .modalBtn:hover {
-    color: $level1Dark;
-    background: $peach;
+    color: $peach;
+    background: transparent;
+    cursor: pointer;
 }
 
 .modalLabelText {
@@ -1017,21 +1235,27 @@ footer {
     color: $peach;
 }
 
+.cursor1-2,
+.cursor2-2 {
+    display: none;
+}
+
 // from 680px do the following ---- tablet screens
 @media screen and (min-width: 680px) {
+    .cursor1-2,
+    .cursor2-2 {
+        display: block;
+    }
     #overlay {
-        opacity: 0;
-        transform: translateX(200%);
-        position: absolute;
         top: 110vh;
         margin: 5% 19%;
         width: 60%;
-        height: 78%;
         border-radius: 10px;
-        background: rgba($color: $level3Dark, $alpha: 0.6);
-        backdrop-filter: blur(8px);
-        transition: all 300ms ease;
-        z-index: 10;
+    }
+    #overlaySuccess {
+        top: 45vh;
+        margin: 0 28%;
+        width: 20rem;
     }
     .menu {
         display: none;
@@ -1041,16 +1265,8 @@ footer {
         background: $backgroundColor;
     }
     header {
-        display: flex;
-        position: fixed;
-        width: 100%;
-        justify-content: space-between;
-        align-self: center;
         text-align: center;
         padding: 0.2rem 4rem;
-        border-bottom: 2px solid $peach;
-        background: rgba($color: $level2Dark, $alpha: 0.6);
-        backdrop-filter: blur(5px);
         a svg {
             height: 2.3rem;
             padding-top: 0.8rem;
@@ -1067,24 +1283,23 @@ footer {
         svg.close {
             display: none;
         }
-        ul {
+        .navBarLinks {
             display: flex;
+            gap: 1rem;
+            align-items: center;
+            flex-direction: row;
             margin: 0;
             li {
-                display: flex;
                 justify-content: center;
                 align-items: center;
                 flex-direction: column;
                 div {
                     position: relative;
                     float: none;
-                    width: 5px;
-                    height: 5px;
                     margin-left: 0;
                     margin-top: 0.2rem;
                     border-radius: 50%;
                     margin-bottom: 0.2px;
-                    background: transparent;
                     border-radius: 50%;
                     margin-bottom: 0.3px;
                     transition: all 300ms ease-in-out;
@@ -1094,7 +1309,7 @@ footer {
                     background: transparent;
                     color: $halfWhite;
                     padding: 0.3rem 1.1rem;
-                    font-size: .7rem;
+                    font-size: 0.7rem;
                     transition: all 300ms ease-in-out;
                     &:hover {
                         color: $peach;
@@ -1128,67 +1343,38 @@ footer {
         }
     }
     #home {
-        background: url("/assets/heroImg3-min.png");
-        background-position: center;
-        background-repeat: no-repeat;
-        background-size: cover;
-        object-fit: cover;
         min-height: 100vh;
         width: 100%;
         .nameDiv {
-            // position: relative;
-            color: $halfWhite;
-            display: flex;
-            flex-direction: column;
-            justify-content: flex-end;
-            align-items: flex-start;
             min-height: 100vh;
             padding-left: 6rem;
             padding-bottom: 0.4rem;
             .nameDiv1 {
-                display: flex;
-                flex-direction: row;
-                justify-content: center;
-                align-items: center;
-                background: rgba($color: $level2Dark, $alpha: 0.6);
-                backdrop-filter: blur(5px);
                 padding: 1rem 1.2rem;
                 padding-left: 0.9rem;
                 border-radius: 10px;
                 gap: 0.8rem;
                 margin-bottom: 8rem;
-                box-shadow: 0px 1px 20px 2px rgba(53, 52, 52, 0.2);
-                .waveEmoji {
-                    font-size: 2.3rem;
+                .waveEmoji img {
+                    width: 2.8rem;
                 }
                 .content {
-                    display: flex;
-                    flex-direction: column;
                     p {
-                        font-size: .75rem;
+                        font-size: 0.75rem;
                     }
                     .name {
                         font-size: 1.8rem;
                         font-weight: bold;
-                        color: $peach;
                     }
                 }
             }
             .roleDiv1 {
                 position: absolute;
-                display: flex;
-                flex-direction: column;
-                justify-content: center;
-                align-items: center;
-                background: rgba($color: $level2Dark, $alpha: 0.5);
-                backdrop-filter: blur(5px);
                 padding: 0.8rem 1.8rem;
                 margin-left: 8rem;
                 margin-bottom: 3rem;
                 border-radius: 10px;
-                text-transform: uppercase;
                 gap: 1px;
-                box-shadow: 0px 1px 20px 2px rgba(53, 52, 52, 0.2);
                 .role {
                     font-size: 0.7rem;
                 }
@@ -1197,13 +1383,10 @@ footer {
     }
     #about {
         .wrapper {
-            position: relative;
             .contentAbout {
                 margin: auto 7rem;
-                padding-top: 5rem;
-                z-index: 1;
-                opacity: 0;
-                color: $halfWhite;
+                padding-top: 6rem;
+                margin-bottom: 6rem;
                 .about-head {
                     font-size: 1.3rem;
                     margin-bottom: 1rem;
@@ -1227,10 +1410,13 @@ footer {
                     li {
                         a {
                             color: $halfWhite;
-                            padding: 0 2.8rem;
                             transition: color 200ms ease;
                             &:hover {
                                 color: $peach;
+                            }
+                            i {
+                                font-size: 1.2rem;
+                                padding: 0.4rem 2.5rem;
                             }
                         }
                     }
@@ -1242,10 +1428,9 @@ footer {
         min-height: 100vh;
         width: 100%;
         .wrapper {
-            // position: relative;
             width: 100%;
             height: auto;
-            .work-content {
+            .work-content-main {
                 padding-top: 6rem;
                 height: auto;
                 margin: auto 5rem;
@@ -1298,8 +1483,6 @@ footer {
                         width: 100%;
                         .skills-img {
                             width: 4rem;
-                            background: rgba($color: $level3Dark, $alpha: 0.6);
-                            backdrop-filter: blur(5px);
                             border-radius: 50%;
                             padding: 10px;
                             transition: box-shadow 300ms ease-in-out;
@@ -1379,9 +1562,6 @@ footer {
                             align-items: center;
                             gap: 0.3rem;
                             i {
-                                color: $peach;
-                                background: rgba($color: $level3Dark, $alpha: 0.6);
-                                backdrop-filter: blur(5px);
                                 border-radius: 50%;
                                 padding: 1.2rem;
                                 font-size: 1rem;
@@ -1402,9 +1582,6 @@ footer {
                             gap: 0.3rem;
                             margin-top: 1px;
                             i {
-                                color: $peach;
-                                background: rgba($color: $level3Dark, $alpha: 0.6);
-                                backdrop-filter: blur(5px);
                                 border-radius: 50%;
                                 padding: 1.2rem;
                                 font-size: 1rem;
@@ -1443,8 +1620,6 @@ footer {
                         width: 85%;
                         border-radius: 10px;
                         padding: 2rem;
-                        background: rgba($color: $level3Dark, $alpha: 0.6);
-                        backdrop-filter: blur(5px);
                         gap: 2rem;
                         .field-div {
                             display: flex;
@@ -1459,8 +1634,6 @@ footer {
                             }
                             input {
                                 width: 100%;
-                                background: rgba($color: $level3Dark, $alpha: 0.6);
-                                backdrop-filter: blur(5px);
                                 border-radius: 4px;
                                 border: 0;
                                 border-bottom: 2px solid $peach;
@@ -1485,8 +1658,6 @@ footer {
                             }
                             textarea {
                                 width: 100%;
-                                background: rgba($color: $level3Dark, $alpha: 0.6);
-                                backdrop-filter: blur(5px);
                                 border-radius: 4px;
                                 border: 0;
                                 border-bottom: 2px solid $peach;
@@ -1501,23 +1672,17 @@ footer {
                         .btn-submit {
                             align-self: center;
                             padding: 5px 15px;
-                            background: $halfWhite;
-                            color: $level1Dark;
                             border: 0;
                             width: 40%;
                             border-radius: 5px;
                             transition: all 300ms ease;
-                            &:hover {
-                                color: $level1Dark;
-                                background: $peach
-                            }
                         }
                     }
                     .contact-logo {
                         svg {
                             position: relative;
                             right: 0;
-                            height: 40vh;
+                            height: 23vh;
                             align-self: center;
                             z-index: 0;
                             .kLogo {
@@ -1583,7 +1748,7 @@ footer {
         font-weight: bold;
         a svg {
             height: 2.6rem;
-            padding-top: 0.8rem;
+            padding-top: 0.9rem;
         }
     }
     nav {
@@ -1592,7 +1757,7 @@ footer {
                 a {
                     padding: 0.1rem 1.8rem;
                     margin-bottom: 0.2rem;
-                    font-size: .7rem;
+                    font-size: 0.7rem;
                 }
             }
         }
@@ -1642,6 +1807,7 @@ footer {
     }
     // Home page
     #home {
+        min-height: 100vh;
         .nameDiv {
             padding-left: 8rem;
             padding-bottom: 0.3rem;
@@ -1651,19 +1817,16 @@ footer {
                 border-radius: 10px;
                 gap: 0.8rem;
                 margin-bottom: 8rem;
-                .waveEmoji {
-                    font-size: 2.5rem;
+                .waveEmoji img {
+                    width: 2.8rem;
                 }
                 .content {
                     p {
-                        font-size: .8rem;
+                        font-size: 0.8rem;
                     }
                     .name {
                         font-size: 2rem;
                     }
-                }
-                &:hover {
-                    transform: translateX(20px);
                 }
             }
             .roleDiv1 {
@@ -1681,13 +1844,11 @@ footer {
         .wrapper {
             position: absolute;
             .contentAbout {
-                display: flex;
-                flex-direction: column;
-                justify-content: center;
                 align-items: flex-start;
                 height: 100vh;
                 padding-top: 3.3rem;
                 margin-top: 0rem;
+                margin-bottom: 0rem;
                 margin: auto 8rem;
                 padding-left: 2rem;
                 z-index: 1;
@@ -1733,19 +1894,9 @@ footer {
                 gap: 2rem;
                 margin-top: 3rem;
                 button {
-                    color: $peach;
-                    background: transparent;
-                    border: 2px solid $peach;
                     border-radius: 50px;
                     padding: 10px 2rem;
                     font-size: 1rem;
-                    transition: all 300ms ease;
-                    text-transform: uppercase;
-                    &:hover {
-                        border: 2px solid $halfWhite;
-                        color: $halfWhite;
-                        background: rgba($color: $level4Dark, $alpha: 0.5);
-                    }
                 }
                 ul {
                     display: flex;
@@ -1755,10 +1906,13 @@ footer {
                     li {
                         a {
                             color: $halfWhite;
-                            padding: 0 2.8rem;
                             transition: color 200ms ease;
                             &:hover {
                                 color: $peach;
+                            }
+                            i {
+                                font-size: 1.1rem;
+                                padding: 0.4rem 2.4rem;
                             }
                         }
                     }
@@ -1770,6 +1924,7 @@ footer {
                     border-right: 2px solid rgba($color: $halfWhite, $alpha: 0.5);
                     border-radius: 5px;
                     opacity: 1;
+                    display: block;
                     transition: none;
                 }
             }
@@ -1802,10 +1957,9 @@ footer {
         min-height: 100vh;
         width: 100%;
         .wrapper {
-            // position: relative;
             width: 100%;
             height: auto;
-            .work-content {
+            .work-content-main {
                 padding-top: 6rem;
                 padding-left: 2rem;
                 height: auto;
@@ -1834,9 +1988,9 @@ footer {
                         display: flex;
                         justify-content: center;
                         align-items: center;
-                        background: rgba($color: $level3Dark, $alpha: 0.6);
-                        backdrop-filter: blur(5px);
-                        padding: 0.5rem 1rem;
+                        box-shadow: -4px -4px 4px rgba(46, 45, 45, 0.2), 4px 4px 4px rgba(0, 0, 0, 0.4), 0 0 0 rgba(255, 255, 255, 0.2) inset, 0 0 0 rgba(0, 0, 0, 0.4) inset;
+                        background: $backgroundColor;
+                        padding: 0.6rem 1.5rem;
                         border-radius: 10px;
                         a {
                             font-size: 0.8rem;
@@ -1864,15 +2018,12 @@ footer {
                         flex-direction: column;
                         width: 25%;
                         height: auto;
-                        background: rgba($color: $level3Dark, $alpha: 0.6);
-                        backdrop-filter: blur(5px);
+                        box-shadow: -4px -4px 4px rgba(46, 45, 45, 0.2), 4px 4px 4px rgba(0, 0, 0, 0.4), 0 0 0 rgba(255, 255, 255, 0.2) inset, 0 0 0 rgba(0, 0, 0, 0.4) inset;
+                        background: $backgroundColor;
                         border-radius: 8px;
                         padding: 0.5rem;
                         margin: 2rem;
                         transition: all 300ms ease;
-                        &:hover {
-                            box-shadow: 0 0 25px rgba($color: #252525, $alpha: 0.4);
-                        }
                         .divImg {
                             position: relative;
                             width: 100%;
@@ -1880,14 +2031,14 @@ footer {
                                 opacity: 1;
                                 width: 100%;
                                 height: auto;
-                                transition: .5s ease;
+                                transition: 0.5s ease;
                                 backface-visibility: hidden;
                                 padding: 0.5rem;
                                 border-radius: 0.9rem;
                                 object-fit: cover;
                             }
                             .middle {
-                                transition: .5s ease;
+                                transition: 0.5s ease;
                                 opacity: 0;
                                 position: absolute;
                                 top: 50%;
@@ -1912,7 +2063,8 @@ footer {
                                     color: $halfWhite;
                                     z-index: 100;
                                     transition: all 300ms ease;
-                                    background: rgba($color: $level3Dark, $alpha: 0.8);
+                                    box-shadow: -4px -4px 4px rgba(46, 45, 45, 0.2), 4px 4px 4px rgba(0, 0, 0, 0.4), 0 0 0 rgba(255, 255, 255, 0.2) inset, 0 0 0 rgba(0, 0, 0, 0.4) inset;
+                                    background: $backgroundColor;
                                     padding: 0.8rem;
                                     border-radius: 50%;
                                     &:hover {
@@ -1930,14 +2082,14 @@ footer {
                         }
                         .category {
                             position: relative;
-                            background: rgba($color: $level3Dark, $alpha: 0.6);
-                            backdrop-filter: blur(5px);
-                            margin-top: -2.26rem;
+                            box-shadow: -4px -4px 4px rgba(46, 45, 45, 0.2), 4px 4px 4px rgba(0, 0, 0, 0.4), 0 0 0 rgba(255, 255, 255, 0.2) inset, 0 0 0 rgba(0, 0, 0, 0.4) inset;
+                            background: $backgroundColor;
+                            margin-top: -2.23rem;
                             border-radius: 6px 6px 0 0;
                             padding: 0.3rem 1.7rem;
                             padding-bottom: 0.1rem;
                             font-size: 0.7rem;
-                            color: $halfWhite;
+                            color: $peach;
                         }
                         .work-content {
                             display: flex;
@@ -1957,7 +2109,7 @@ footer {
                             }
                             .work-content-desc {
                                 text-align: center;
-                                color: rgba($color: $halfWhite, $alpha: 0.8);
+                                color: rgba($color: $halfWhite, $alpha: 0.6);
                                 font-size: 0.7rem;
                             }
                         }
@@ -2018,15 +2170,12 @@ footer {
                         align-items: flex-start;
                         width: 50%;
                         .skills-img {
-                            width: 5rem;
-                            background: rgba($color: $level3Dark, $alpha: 0.6);
-                            backdrop-filter: blur(5px);
+                            width: 4rem;
                             border-radius: 50%;
-                            padding: 1.3rem;
+                            padding: 0.9rem;
                             transition: box-shadow 300ms ease-in-out;
                             &:hover {
                                 animation: hvr-wobble-horizontal 1s;
-                                box-shadow: -1px 7px 40px -30px rgba(196, 194, 196, 1);
                             }
                             @keyframes hvr-wobble-horizontal {
                                 16.65% {
@@ -2144,9 +2293,6 @@ footer {
                             align-items: center;
                             gap: 0.3rem;
                             i {
-                                color: $peach;
-                                background: rgba($color: $level3Dark, $alpha: 0.6);
-                                backdrop-filter: blur(5px);
                                 border-radius: 50%;
                                 padding: 1.2rem;
                                 font-size: 1rem;
@@ -2167,9 +2313,6 @@ footer {
                             gap: 0.3rem;
                             margin-top: 1px;
                             i {
-                                color: $peach;
-                                background: rgba($color: $level3Dark, $alpha: 0.6);
-                                backdrop-filter: blur(5px);
                                 border-radius: 50%;
                                 padding: 1.2rem;
                                 font-size: 1rem;
@@ -2208,8 +2351,6 @@ footer {
                         width: 100%;
                         border-radius: 10px;
                         padding: 2rem;
-                        background: rgba($color: $level3Dark, $alpha: 0.6);
-                        backdrop-filter: blur(5px);
                         gap: 2rem;
                         .field-div {
                             display: flex;
@@ -2223,8 +2364,6 @@ footer {
                             }
                             input {
                                 width: 50%;
-                                background: rgba($color: $level3Dark, $alpha: 0.6);
-                                backdrop-filter: blur(5px);
                                 border-radius: 4px;
                                 border: 0;
                                 border-bottom: 2px solid $peach;
@@ -2248,8 +2387,6 @@ footer {
                             }
                             textarea {
                                 width: 100%;
-                                background: rgba($color: $level3Dark, $alpha: 0.6);
-                                backdrop-filter: blur(5px);
                                 border-radius: 4px;
                                 border: 0;
                                 border-bottom: 2px solid $peach;
@@ -2263,15 +2400,17 @@ footer {
                         }
                         .btn-submit {
                             padding: 5px 15px;
-                            background: $halfWhite;
-                            color: $level1Dark;
+                            padding-top: 7px;
+                            color: $halfWhite;
                             border: 0;
                             width: 40%;
                             border-radius: 5px;
                             transition: all 300ms ease;
                             &:hover {
-                                color: $level1Dark;
-                                background: $peach
+                                box-shadow: -4px -4px 4px rgba(46, 45, 45, 0.2), 4px 4px 4px rgba(0, 0, 0, 0.4), 0 0 0 rgba(255, 255, 255, 0.2) inset, 0 0 0 rgba(0, 0, 0, 0.4) inset;
+                                background: transparent;
+                                color: $peach;
+                                cursor: pointer;
                             }
                         }
                     }
@@ -2279,7 +2418,7 @@ footer {
                         svg {
                             position: relative;
                             right: 0;
-                            height: 60vh;
+                            height: 50vh;
                             align-self: center;
                             z-index: 0;
                             .kLogo {
@@ -2302,14 +2441,20 @@ footer {
                         display: flex;
                         justify-content: center;
                         align-items: center;
-                        gap: 3rem;
+                        gap: 2rem;
                         li {
+                            box-shadow: -4px -4px 4px rgba(46, 45, 45, 0.2), 4px 4px 4px rgba(0, 0, 0, 0.4), 0 0 0 rgba(255, 255, 255, 0.2) inset, 0 0 0 rgba(0, 0, 0, 0.4) inset;
+                            background: $backgroundColor;
+                            border-radius: 5px;
                             a {
                                 color: $halfWhite;
-                                font-size: 1.2rem;
-                                transition: all 300ms ease;
+                                transition: color 200ms ease;
                                 &:hover {
                                     color: $peach;
+                                }
+                                i {
+                                    font-size: 1rem;
+                                    padding: 0.3rem 2rem;
                                 }
                             }
                         }
@@ -2330,9 +2475,9 @@ footer {
         }
     }
     footer {
-        background: rgba($color: $level3Dark, $alpha: 0.6);
-        backdrop-filter: blur(5px);
-        padding: 0.8rem;
+        box-shadow: -4px -4px 4px rgba(46, 45, 45, 0.2), 4px 4px 4px rgba(0, 0, 0, 0.4), 0 0 0 rgba(255, 255, 255, 0.2) inset, 0 0 0 rgba(0, 0, 0, 0.4) inset;
+        background: $backgroundColor;
+        padding: 0.9rem;
         display: flex;
         justify-content: center;
         align-items: center;
@@ -2348,13 +2493,11 @@ footer {
         opacity: 0;
         transform: translateX(200%);
         position: absolute;
-        top: 100vh;
+        top: 110vh;
         margin: 5% 25%;
         width: 50%;
-        height: 78%;
+        height: fit-content;
         border-radius: 10px;
-        background: rgba($color: $level3Dark, $alpha: 0.6);
-        backdrop-filter: blur(8px);
         transition: all 300ms ease;
         z-index: 10;
     }
@@ -2387,11 +2530,10 @@ footer {
         font-size: 0.8rem;
         padding: 7px;
         border-radius: 5px;
-        border: none;
-        background-color: $halfWhite;
-        color: $level1Dark;
-        margin-top: 5px;
-        transition: all 300ms ease;
+    }
+    #overlaySuccess {
+        top: 40%;
+        left: 10%;
     }
 }
 
@@ -2412,15 +2554,16 @@ footer {
 }
 
 //for large screens
-@media screen and (min-width:1500px) {
+@media screen and (min-width: 1500px) {
     #home {
+        min-height: 100vh;
         .nameDiv {
             padding-left: 9rem;
             padding-bottom: 1rem;
             .nameDiv1 {
                 margin-bottom: 8.5rem;
-                .waveEmoji {
-                    font-size: 2.8rem;
+                .waveEmoji img {
+                    width: 3.5rem;
                 }
                 .content {
                     p {
@@ -2470,18 +2613,17 @@ footer {
             .about-contact {
                 button {
                     padding: 10px 2rem;
-                    font-size: 1.3rem;
+                    font-size: 1.1rem;
                     transition: all 300ms ease;
-                    &:hover {
-                        border: 2px solid $halfWhite;
-                        color: $halfWhite;
-                    }
                 }
                 ul {
                     padding-top: 5px;
                     li {
                         a {
-                            padding: 0 3rem;
+                            i {
+                                font-size: 1.2rem;
+                                padding: 0.4rem 2.7rem;
+                            }
                         }
                     }
                 }
@@ -2490,7 +2632,7 @@ footer {
     }
     #work {
         .wrapper {
-            .work-content {
+            .work-content-main {
                 .work-head {
                     font-size: 3.5rem;
                 }
@@ -2541,7 +2683,7 @@ footer {
                 .skills-main {
                     .skills-logos {
                         .skills-img {
-                            width: 5.5rem;
+                            width: 5rem;
                             padding: 1.1rem;
                         }
                     }
@@ -2610,7 +2752,7 @@ footer {
                     }
                     .contact-logo {
                         svg {
-                            height: 60vh;
+                            height: 48vh;
                         }
                     }
                 }
@@ -2629,6 +2771,10 @@ footer {
             }
         }
     }
+    #overlaySuccess {
+        top: 40%;
+        left: 40%;
+    }
 }
 
 @keyframes wave {
@@ -2640,17 +2786,6 @@ footer {
     }
     100% {
         transform: rotateZ(-15deg);
-    }
-}
-
-@keyframes clip {
-    from {
-        clip-path: polygon(0 0, 0 0, 0 99%, 0 100%);
-        //     clip-path: polygon(51% 48%, 53% 48%, 52% 50%, 50% 49%);
-    }
-    to {
-        clip-path: polygon(0 0, 100% 1%, 100% 100%, 0 100%);
-        // clip-path: polygon(100% 0, 0 0, 0 100%, 100% 100%);
     }
 }
 
@@ -2667,6 +2802,26 @@ footer {
 
 
 /* cursor animation */
+
+.cursor1-2 {
+    position: fixed;
+    width: 35px;
+    height: 35px;
+    border: 2px solid rgba($color: $halfWhite, $alpha: 0.2);
+    border-radius: 50%;
+    left: 0;
+    top: 0;
+    pointer-events: none;
+    transition: 0.1s;
+    z-index: 1000000;
+    transform: translate(-50%, -50%) scale(1.2);
+    background-color: #706f6f;
+    opacity: 0.5;
+}
+
+.cursor2-2 {
+    opacity: 0;
+}
 
 .cursor1 {
     position: fixed;
@@ -2697,25 +2852,8 @@ footer {
     z-index: 1000000;
 }
 
-.cursor1-2 {
-    position: fixed;
-    width: 35px;
-    height: 35px;
-    border: 2px solid rgba($color: $halfWhite, $alpha: 0.2);
-    border-radius: 50%;
-    left: 0;
-    top: 0;
-    pointer-events: none;
-    transition: 0.1s;
-    z-index: 1000000;
-    transform: translate(-50%, -50%) scale(1.2);
-    background-color: #4e4d4d;
-    opacity: 0.5;
-}
 
-.cursor2-2 {
-    opacity: 0;
-}
+/* cursor animation end */
 
 
 /* cursor animation end */

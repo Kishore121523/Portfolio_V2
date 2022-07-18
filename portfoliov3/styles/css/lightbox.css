@@ -43,7 +43,7 @@ body.lb-disable-scrolling {
     *zoom: 1;
     width: 250px;
     height: 250px;
-    margin: 0 auto;
+    margin: auto auto;
     border-radius: 4px;
     background-color: transparent;
 }
